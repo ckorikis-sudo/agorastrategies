@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" crossorigin="anonymous">
-  <style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=8YoAO73RD5jlnoIvklg7eZ7PVXyW7G9YhbdqZEBtl4SyDI8LwiYvsntQUDHM5eVoY3O_A6v3jaxCSWkQfUC2YdTjUCXWL9vUxcC7lQo4c8wAt2TIsFtnB1PPiOurYpWzWlxUCObATL2APFUXKs55Fa1Z9UpXf-qmkY_qXqSA3nNpeHVxDk42kA_LebkCxBybHQZgUBvYJT8ENei10DbvaaOsxU5kQGduDC6WOMoPqPAsvzzTR-s73fHhTsgEJImvkJRCtqKx8taS8xSF1OcuiehRbupTX-cfQzsPys-vltIUwi8HwAhiho_xA3SgWLqi1kD_gwX_3BybZOC4zimG7FttCU764OworunL88VAHQLVvREOj6RYs84VHdNPsn7IYYfJywk86aHYosI0bkUsMuPinKotFUpQNjVY_Mmh_0wPjxS8OoqPRTO_POjw2YLSQlmjK_DIYDtBYaCwvnpGVSlggn4LPMF2MPdNvOiXCajYHtd56wBshp-MWz9g8UJYqnGsDEI4Poss4qKp00kkXRwK_02IKaBtzS79a-Tl0TqHpgbwSOKexpdvEIKbHkSO_pr4ky3nNNQJW70ziVJLSZKFiloITvQ66hJyGS6adgRS_7mUjvc8q4ptOLSaaJhQTydNF0Sm4s05z0heTIOIUlgb74YkRoOJmONunAjURuI" charset="UTF-8"></script><style>
     /* ===== CSS VARIABLES ===== */
     :root {
       --teal-950: #0a2e33;
@@ -1482,7 +1482,7 @@
           <h4>Το μήνυμα στάλθηκε επιτυχώς!</h4>
           <p>Σας ευχαριστούμε για την επικοινωνία. Θα απαντήσουμε εντός 24 ωρών σε εργάσιμες ημέρες.</p>
         </div>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?submitted=true#contact" id="contactForm">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html" id="contactForm">
           <div style="display:none;">
             <input name="bot-field" />
           </div>
@@ -1683,7 +1683,7 @@
     // ===== FORM SUBMITTED STATE =====
     (function() {
       var params = new URLSearchParams(window.location.search);
-      if (params.get('submitted') === 'true') {
+      if (params.get('thanks') === 'true' || params.get('submitted') === 'true') {
         var form = document.getElementById('contactForm');
         var success = document.getElementById('formSuccess');
         if (form && success) {
