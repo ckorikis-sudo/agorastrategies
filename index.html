@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" crossorigin="anonymous">
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=8ogxTNw2dqSI2eLnPPENtehBde2BKov3cXWyPpO2WCIjTMMfqdyOci2BqVfkZ189-_EuhVp9iWp5jiTphFSo2Q8dcjoqGP4XpUIW8kINRr5A_br-dv_KdtmQc7YgxmLUjnIO-HNfBlCvOmtgeCyC_TPbvKNn-CfC-MfQzis5ki0lq_n4nwcU8O6a5pj5bUsCbjgd4C8jFqG3f06KB840e7y52C3yD0uCnFIaUM0fUd8Fy7ltvS4oWxgoT-CtW_pJ1u38AbvFdtc2magjoQdKxmKx8eyFMPzlLRdoGMqDPEyZmYM6F5O4Tn9bKaAjvGy3Li8nah39UuUPT8Y0NoVxXAwbaM5ioyg4XUgE6iPkermW3xlkpxMgDEa7SIZY16Gq3vAhTuqw0BUio20Z7GZnL4fbnnQb8YE3c9kZO4NahHcQOeNTdXWTZXVIP_cpXdEG15n__ORi3STHYkTtKF30HaC34QqTxjhYKaY9-XMzuSZeRk0x6ESYZ5qPEEYNOJRvFueqbrMuBE0afcXfCX6lZfV0a3bjRGwHg20hRqahz81--e6H2pxo4UVEXptLp2a6LuCUo9GM1RTwd839D3PpuPk4w8TbLqgNSFkIrrXmBA_p3bcVFCfnpgkAuniSOg-A_Hm2sZijTIariQRBetHSNJIDaQPy9Pala81jdRTRZCk" charset="UTF-8"></script><style>
+  <style>
     /* ===== CSS VARIABLES ===== */
     :root {
       --teal-950: #0a2e33;
@@ -47,33 +47,6 @@
     img { max-width: 100%; display: block; }
     button { border: none; background: none; cursor: pointer; font-family: inherit; }
     input, textarea, select { font-family: inherit; }
-
-    /* ===== CUSTOM CURSOR ===== */
-    .cursor { display: none; }
-    @media (pointer: fine) {
-      .cursor {
-        display: block;
-        position: fixed; width: 20px; height: 20px;
-        border: 1px solid var(--coral);
-        border-radius: 50%;
-        pointer-events: none; z-index: 9999;
-        transform: translate(-50%, -50%);
-        transition: width 0.3s, height 0.3s, background 0.3s, border-color 0.3s;
-        mix-blend-mode: difference;
-      }
-      .cursor.hover {
-        width: 60px; height: 60px;
-        background: rgba(212, 133, 106, 0.15);
-        border-color: var(--coral-light);
-      }
-    }
-
-    /* ===== PARTICLE CANVAS ===== */
-    #particleCanvas {
-      position: fixed; inset: 0; z-index: 0;
-      pointer-events: none;
-      opacity: 0.4;
-    }
 
     /* ===== NAVIGATION ===== */
     .nav {
@@ -139,23 +112,6 @@
       justify-content: center;
       padding: 8rem 4rem 4rem;
       overflow: hidden;
-    }
-    .hero-particles {
-      position: absolute; inset: 0;
-      overflow: hidden; pointer-events: none;
-    }
-    .hero-particle {
-      position: absolute;
-      width: 2px; height: 2px;
-      background: rgba(212, 133, 106, 0.4);
-      border-radius: 50%;
-      animation: float linear infinite;
-    }
-    @keyframes float {
-      0% { transform: translateY(100vh) scale(0); opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { transform: translateY(-100px) scale(1); opacity: 0; }
     }
     .hero-grid {
       position: absolute; inset: 0;
@@ -1105,9 +1061,6 @@
 </head>
 <body>
 
-  <!-- Custom Cursor -->
-  <div class="cursor" id="cursor"></div>
-
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#packages" onclick="closeMenu()">Πακέτα</a>
@@ -1140,7 +1093,6 @@
   <!-- Hero -->
   <section class="hero" id="hero">
     <div class="hero-grid"></div>
-    <div class="hero-particles" id="heroParticles"></div>
 
     <div class="hero-badge" id="heroBadge">
       <span class="dot"></span>
@@ -1623,20 +1575,7 @@
       }, 800);
     });
 
-    // ===== CUSTOM CURSOR (desktop only) =====
-    (function() {
-      var cursor = document.getElementById('cursor');
-      var isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      if (isTouch || !cursor) { if(cursor) cursor.style.display = 'none'; return; }
-      document.addEventListener('mousemove', function(e) {
-        cursor.style.left = e.clientX + 'px';
-        cursor.style.top = e.clientY + 'px';
-      });
-      document.querySelectorAll('a, button, .package-card, .principle-card, .testimonial-card').forEach(function(el) {
-        el.addEventListener('mouseenter', function() { cursor.classList.add('hover'); });
-        el.addEventListener('mouseleave', function() { cursor.classList.remove('hover'); });
-      });
-    })();
+    // ===== CURSOR + PARTICLES REMOVED FOR MOBILE COMPATIBILITY =====
 
     // ===== NAV SCROLL =====
     var nav = document.getElementById('nav');
@@ -1662,45 +1601,36 @@
     // ===== SCROLL REVEAL =====
     var revealElements = document.querySelectorAll('.reveal');
     var revealObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
+      for (var i = 0; i < entries.length; i++) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add('visible');
         }
-      });
+      }
     }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    revealElements.forEach(function(el) { revealObserver.observe(el); });
+    for (var i = 0; i < revealElements.length; i++) {
+      revealObserver.observe(revealElements[i]);
+    }
 
     // ===== COUNTER ANIMATION =====
     function animateCounters() {
-      document.querySelectorAll('.counter').forEach(function(counter) {
-        var target = parseInt(counter.dataset.target);
-        var duration = 2000;
-        var step = target / (duration / 16);
-        var current = 0;
-        function update() {
-          current += step;
-          if (current < target) {
-            counter.textContent = Math.floor(current);
-            requestAnimationFrame(update);
-          } else {
-            counter.textContent = target;
+      var counters = document.querySelectorAll('.counter');
+      for (var i = 0; i < counters.length; i++) {
+        (function(counter) {
+          var target = parseInt(counter.dataset.target);
+          var duration = 2000;
+          var step = target / (duration / 16);
+          var current = 0;
+          function update() {
+            current += step;
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+              requestAnimationFrame(update);
+            } else {
+              counter.textContent = target;
+            }
           }
-        }
-        update();
-      });
-    }
-
-    // ===== HERO PARTICLES =====
-    var particleContainer = document.getElementById('heroParticles');
-    if (particleContainer) {
-      for (var i = 0; i < 20; i++) {
-        var p = document.createElement('div');
-        p.className = 'hero-particle';
-        p.style.left = Math.random() * 100 + '%';
-        p.style.animationDuration = (8 + Math.random() * 12) + 's';
-        p.style.animationDelay = Math.random() * 10 + 's';
-        p.style.width = p.style.height = (1 + Math.random() * 3) + 'px';
-        particleContainer.appendChild(p);
+          update();
+        })(counters[i]);
       }
     }
 
@@ -1723,14 +1653,14 @@
         lineFill.style.height = (progress * 100) + '%';
       }
 
-      steps.forEach(function(step, index) {
-        var stepProgress = (progress * steps.length) - index;
+      for (var i = 0; i < steps.length; i++) {
+        var stepProgress = (progress * steps.length) - i;
         if (stepProgress > 0.3) {
-          step.classList.add('active');
+          steps[i].classList.add('active');
         } else {
-          step.classList.remove('active');
+          steps[i].classList.remove('active');
         }
-      });
+      }
     }
 
     window.addEventListener('scroll', updateTimeline);
@@ -1767,8 +1697,9 @@
     })();
 
     // ===== SMOOTH SCROLL =====
-    document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
-      anchor.addEventListener('click', function(e) {
+    var scrollAnchors = document.querySelectorAll('a[href^="#"]');
+    for (var i = 0; i < scrollAnchors.length; i++) {
+      scrollAnchors[i].addEventListener('click', function(e) {
         var href = this.getAttribute('href');
         if (href === '#') return;
         e.preventDefault();
@@ -1777,7 +1708,7 @@
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
       });
-    });
+    }
   </script>
 </body>
 </html>
