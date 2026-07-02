@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" crossorigin="anonymous">
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=l66KHWcc9qMWXgicA2CTHCpiUqaqoSShWX_XxW3HbWsfqyEuEKZca_QEvPQOAK34Re3L049mD8IO5WvmQ9ye78cGljqlMRwx2WxgQiT0k_lUmVGHCIQZDCyKeslUbZzTzvFbpizdAovDqGb2b5ArnsfZ48gQ60jp7Ybl3UBKeftkQBnPowIYZt0CG5mH6tNudKlMmhTez1qaZbZ6AVPorXOgQ8b8CRW3nEvJK1ULn-uGoGfwPd7R1Dw9MoevvSqH9OQPhSWY7EeBidl_h0DA2SdXF93gMHMOP_h3Ztu2O5uhpHzT4f_e8ha6MjGqBhxknRt9l6HIpfCoTAmUhEyAHAE08eyfJVU27raub4nVWMiME28m4jK5tSnN4oxr9wuHV-DzAbSZahYCRaSO-pFVOq_qxZdrItKLIVkknOzu21Uhof2hsVSt-I3wpk1C2Pe7LNDTlcDmltvHD4DNYfUD3FNEpDeNsA0CrodmxQliq1Q9P4zAM0U7ZlNThSa1k8AaYnyCYG9SjGHm4TlnSTKd1TpFAIFyQ9EYlfO7nx9doCoZuXhEGhMDLGfVQUuZXIV0DRMA2OWTcYkqHASR8NxAiOqt8XmlLl1pfBve1N0YqtH2o0IyQKg8gloB38n18AAUI5OwEbLtkKNJ5-_4jGLestxCnHzpHuGkA_wx5vPTTD8" charset="UTF-8"></script><style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=8ogxTNw2dqSI2eLnPPENtehBde2BKov3cXWyPpO2WCIjTMMfqdyOci2BqVfkZ189-_EuhVp9iWp5jiTphFSo2Q8dcjoqGP4XpUIW8kINRr5A_br-dv_KdtmQc7YgxmLUjnIO-HNfBlCvOmtgeCyC_TPbvKNn-CfC-MfQzis5ki0lq_n4nwcU8O6a5pj5bUsCbjgd4C8jFqG3f06KB840e7y52C3yD0uCnFIaUM0fUd8Fy7ltvS4oWxgoT-CtW_pJ1u38AbvFdtc2magjoQdKxmKx8eyFMPzlLRdoGMqDPEyZmYM6F5O4Tn9bKaAjvGy3Li8nah39UuUPT8Y0NoVxXAwbaM5ioyg4XUgE6iPkermW3xlkpxMgDEa7SIZY16Gq3vAhTuqw0BUio20Z7GZnL4fbnnQb8YE3c9kZO4NahHcQOeNTdXWTZXVIP_cpXdEG15n__ORi3STHYkTtKF30HaC34QqTxjhYKaY9-XMzuSZeRk0x6ESYZ5qPEEYNOJRvFueqbrMuBE0afcXfCX6lZfV0a3bjRGwHg20hRqahz81--e6H2pxo4UVEXptLp2a6LuCUo9GM1RTwd839D3PpuPk4w8TbLqgNSFkIrrXmBA_p3bcVFCfnpgkAuniSOg-A_Hm2sZijTIariQRBetHSNJIDaQPy9Pala81jdRTRZCk" charset="UTF-8"></script><style>
     /* ===== CSS VARIABLES ===== */
     :root {
       --teal-950: #0a2e33;
@@ -47,70 +47,6 @@
     img { max-width: 100%; display: block; }
     button { border: none; background: none; cursor: pointer; font-family: inherit; }
     input, textarea, select { font-family: inherit; }
-
-    /* ===== PRELOADER ===== */
-    .preloader {
-      position: fixed; inset: 0; z-index: 10000;
-      background: var(--teal-950);
-      display: flex; align-items: center; justify-content: center;
-      flex-direction: column; gap: 2rem;
-      transition: opacity 0.8s var(--ease-out-expo), visibility 0.8s;
-      /* Auto-hide after 4s as fallback for slow connections */
-      animation: preloaderHide 0.8s var(--ease-out-expo) 4s forwards;
-    }
-    .preloader.done {
-      opacity: 0; visibility: hidden; pointer-events: none;
-      animation: none;
-    }
-    @keyframes preloaderHide {
-      to { opacity: 0; visibility: hidden; pointer-events: none; }
-    }
-    .preloader-logo {
-      font-family: var(--font-display);
-      font-size: clamp(3rem, 8vw, 7rem);
-      font-weight: 400;
-      color: var(--text-light);
-      letter-spacing: -0.02em;
-      overflow: hidden;
-    }
-    .preloader-logo .letter {
-      display: inline-block;
-      opacity: 0;
-      transform: translateY(60px);
-      animation: letterReveal 0.6s var(--ease-out-expo) forwards;
-    }
-    .preloader-logo .letter.g { color: var(--coral); }
-    @keyframes letterReveal {
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .preloader-line {
-      width: 120px; height: 1px;
-      background: var(--border-light);
-      position: relative;
-      overflow: hidden;
-    }
-    .preloader-line::after {
-      content: ''; position: absolute; left: 0; top: 0;
-      width: 100%; height: 100%;
-      background: var(--coral);
-      transform: translateX(-100%);
-      animation: lineFill 1.5s var(--ease-out-expo) 1.2s forwards;
-    }
-    @keyframes lineFill {
-      to { transform: translateX(0); }
-    }
-    .preloader-year {
-      font-family: var(--font-mono);
-      font-size: 0.7rem;
-      letter-spacing: 0.3em;
-      color: var(--text-muted);
-      text-transform: uppercase;
-      opacity: 0;
-      animation: fadeIn 0.8s var(--ease-out-expo) 2s forwards;
-    }
-    @keyframes fadeIn {
-      to { opacity: 1; }
-    }
 
     /* ===== CUSTOM CURSOR ===== */
     .cursor { display: none; }
@@ -349,6 +285,13 @@
     }
     .hero-cta:hover svg {
       transform: translateY(3px);
+    }
+
+    /* Hero entrance animations */
+    #heroBadge, #heroTitle, #heroSubtitle, #heroStats, #heroCta {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
     }
 
     /* ===== ANIMATED ENTRANCE ===== */
@@ -1165,15 +1108,6 @@
   <!-- Custom Cursor -->
   <div class="cursor" id="cursor"></div>
 
-  <!-- Preloader -->
-  <div class="preloader" id="preloader">
-    <div class="preloader-logo">
-      <span class="letter" style="animation-delay:0.1s">A</span><span class="letter g" style="animation-delay:0.2s">G</span><span class="letter" style="animation-delay:0.3s">O</span><span class="letter" style="animation-delay:0.4s">R</span><span class="letter" style="animation-delay:0.5s">A</span>
-    </div>
-    <div class="preloader-line"></div>
-    <div class="preloader-year">MMXXVI &mdash; ΑΘΗΝΑ</div>
-  </div>
-
   <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#packages" onclick="closeMenu()">Πακέτα</a>
@@ -1596,7 +1530,7 @@
           <h4>Το μήνυμα στάλθηκε επιτυχώς!</h4>
           <p>Σας ευχαριστούμε για την επικοινωνία. Θα απαντήσουμε εντός 24 ωρών σε εργάσιμες ημέρες.</p>
         </div>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?submitted=true#contact" onsubmit="handleSubmit(event)" id="contactForm">
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?submitted=true#contact" id="contactForm">
           <div style="display:none;">
             <input name="bot-field" />
           </div>
@@ -1665,53 +1599,29 @@
   </footer>
 
   <script>
-    // ===== PRELOADER =====
-    function hidePreloader() {
-      const preloader = document.getElementById('preloader');
-      if (!preloader || preloader.classList.contains('done')) return;
-      preloader.classList.add('done');
-      // Animate hero elements after preloader
+    // ===== HERO ENTRANCE ANIMATIONS =====
+    document.addEventListener('DOMContentLoaded', function() {
       setTimeout(function() {
         var hb = document.getElementById('heroBadge');
-        if (hb) { hb.style.opacity = '1'; hb.style.transform = 'translateY(0)'; hb.style.transition = 'all 0.8s cubic-bezier(0.16,1,0.3,1)'; }
-      }, 300);
+        if (hb) { hb.style.opacity = '1'; hb.style.transform = 'translateY(0)'; }
+      }, 100);
       setTimeout(function() {
         var ht = document.getElementById('heroTitle');
-        if (ht) { ht.style.opacity = '1'; ht.style.transform = 'translateY(0)'; ht.style.transition = 'all 1s cubic-bezier(0.16,1,0.3,1)'; }
-      }, 500);
+        if (ht) { ht.style.opacity = '1'; ht.style.transform = 'translateY(0)'; }
+      }, 200);
       setTimeout(function() {
         var hs = document.getElementById('heroSubtitle');
-        if (hs) { hs.style.opacity = '1'; hs.style.transform = 'translateY(0)'; hs.style.transition = 'all 0.8s cubic-bezier(0.16,1,0.3,1)'; }
-      }, 800);
+        if (hs) { hs.style.opacity = '1'; hs.style.transform = 'translateY(0)'; }
+      }, 400);
       setTimeout(function() {
         var hst = document.getElementById('heroStats');
-        if (hst) { hst.style.opacity = '1'; hst.style.transform = 'translateY(0)'; hst.style.transition = 'all 0.8s cubic-bezier(0.16,1,0.3,1)'; animateCounters(); }
-      }, 1000);
+        if (hst) { hst.style.opacity = '1'; hst.style.transform = 'translateY(0)'; animateCounters(); }
+      }, 600);
       setTimeout(function() {
         var hc = document.getElementById('heroCta');
-        if (hc) { hc.style.opacity = '1'; hc.style.transform = 'translateY(0)'; hc.style.transition = 'all 0.6s cubic-bezier(0.16,1,0.3,1)'; }
-      }, 1200);
-    }
-
-    // Use DOMContentLoaded for faster trigger, with fallback timeout
-    var preloaderTimer;
-    function startPreloaderTimeout() {
-      preloaderTimer = setTimeout(hidePreloader, 3800);
-    }
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', startPreloaderTimeout);
-    } else {
-      startPreloaderTimeout();
-    }
-    // Also try on window.load (fonts/images loaded)
-    window.addEventListener('load', function() {
-      clearTimeout(preloaderTimer);
-      setTimeout(hidePreloader, 200);
+        if (hc) { hc.style.opacity = '1'; hc.style.transform = 'translateY(0)'; }
+      }, 800);
     });
-
-    // Set initial hero states
-    document.getElementById('heroTitle').style.opacity = '0';
-    document.getElementById('heroTitle').style.transform = 'translateY(40px)';
 
     // ===== CUSTOM CURSOR (desktop only) =====
     (function() {
@@ -1838,17 +1748,6 @@
       var maxPos = -(cards.length - 1) * cardWidth;
       carouselPos = Math.max(maxPos, Math.min(0, carouselPos - direction * cardWidth));
       carousel.style.transform = 'translateX(' + carouselPos + 'px)';
-    }
-
-    // ===== FORM SUBMIT =====
-    function handleSubmit(e) {
-      // Don't prevent default — let Netlify handle the form submission
-      var btn = e.target.querySelector('.form-submit');
-      if (btn) {
-        btn.innerHTML = 'Αποστολή...';
-        btn.disabled = true;
-      }
-      return true;
     }
 
     // ===== FORM SUBMITTED STATE =====
