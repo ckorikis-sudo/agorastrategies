@@ -1,352 +1,1867 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="el">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>AGORA Strategies — Πολιτική στρατηγική και επικοινωνία για την τοπική αυτοδιοίκηση</title>
-<meta name="description" content="Η AGORA Strategies αναλαμβάνει ολόκληρη την καμπάνια ενός αυτοδιοικητικού υποψηφίου, από την έρευνα και το μήνυμα ως το γραφείο και τις συγκεντρώσεις. Από την πλατεία ως το feed.">
-<meta property="og:title" content="AGORA Strategies">
-<meta property="og:description" content="Πολιτική στρατηγική και επικοινωνία για την τοπική αυτοδιοίκηση. Από την πλατεία ως το feed.">
-<meta property="og:image" content="/icon-fullcolor.png">
-<link rel="icon" type="image/png" href="/icon-petrol.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AGORA Strategies — Πολιτική στρατηγική &amp; επικοινωνία</title>
+  <meta name="description" content="Αναλαμβάνουμε ολόκληρη την καμπάνια ενός αυτοδιοικητικού υποψηφίου. Έναν υποψήφιο ανά δήμο, μία ομάδα από πίσω.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=FSMx9RuILdezNrQbPadD6qgxnKXbuFLYuKo18cYOeYV1y4i9nj7sbmZ3pfBdVDwzO_fpVwl5FtDt_ye5wJvraVl22H3HcrkEoX2jjMJEkEnv-8jNau1XR-KM87noiPlah-8R5iCARXZJQVgDNyNBcKRuVAPZB5CObtYBf9tmcaoq4MbpBLw6ZgkISBrHr57I_sbK2CKCTs0XfOLhsD0Y0wvL1qJQoKKnHXKbuB-DacStFWfQlS2uZ-wdb5pYzgnrLHEMlC1PLPGqXdSewof6sOY_4Qjjnxbqdx9ZG8uMlx8QG9FgVu_8MnY6k2mSvSmKI7e2dfh96SgAWAB0TDhWY8xVNmiRaWtHaKASirFLUzvBEADlZR2piNR238Oj4wlTEa03MDKQTcobcMgMLgoLKEGoVpTPgs--bCqjuBEWchNJ9nLmoShRHQZ5aMYUEpFU84zIED4hAjPpw79sVtGVGxynWCFuxLv5JEoPgbUtb5QPqqlzhCkeh8_mtEj-0Hh_0ePvOwuqNtMPsyhqIcaiYtllXTQh0dSPxZd_ECmibtekI6qrTXie9pOWQiJFhrq1ftp5QMoBEfbfHHGoGCVJZ0yuHj3olaWCI-NP9gcABbQ0WwVNHW94JPK5Yi2cWHG-UJtnRPDpSrGVk1h4u6Sw7Jfg2Wb_8Nx8GSopcT-xwA0" charset="UTF-8"></script><style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --teal-950: #0a2e33;
+      --teal-900: #0d3d42;
+      --teal-800: #114c52;
+      --teal-700: #165b62;
+      --teal-600: #1a6a72;
+      --coral: #d4856a;
+      --coral-light: #e8a890;
+      --cream: #faf6f1;
+      --cream-dark: #f0ebe4;
+      --warm-gray: #6b6560;
+      --text-light: #f5f0eb;
+      --text-muted: rgba(245, 240, 235, 0.6);
+      --border-light: rgba(245, 240, 235, 0.12);
+      --border-dark: rgba(10, 46, 51, 0.12);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--teal-950);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+    img { max-width: 100%; display: block; }
+    button { border: none; background: none; cursor: pointer; font-family: inherit; }
+    input, textarea, select { font-family: inherit; }
+
+    /* ===== PRELOADER ===== */
+    .preloader {
+      position: fixed; inset: 0; z-index: 10000;
+      background: var(--teal-950);
+      display: flex; align-items: center; justify-content: center;
+      flex-direction: column; gap: 2rem;
+      transition: opacity 0.8s var(--ease-out-expo), visibility 0.8s;
+    }
+    .preloader.done { opacity: 0; visibility: hidden; pointer-events: none; }
+    .preloader-logo {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 400;
+      color: var(--text-light);
+      letter-spacing: -0.02em;
+      overflow: hidden;
+    }
+    .preloader-logo .letter {
+      display: inline-block;
+      opacity: 0;
+      transform: translateY(60px);
+      animation: letterReveal 0.6s var(--ease-out-expo) forwards;
+    }
+    .preloader-logo .letter.g { color: var(--coral); }
+    @keyframes letterReveal {
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .preloader-line {
+      width: 120px; height: 1px;
+      background: var(--border-light);
+      position: relative;
+      overflow: hidden;
+    }
+    .preloader-line::after {
+      content: ''; position: absolute; left: 0; top: 0;
+      width: 100%; height: 100%;
+      background: var(--coral);
+      transform: translateX(-100%);
+      animation: lineFill 1.5s var(--ease-out-expo) 1.2s forwards;
+    }
+    @keyframes lineFill {
+      to { transform: translateX(0); }
+    }
+    .preloader-year {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      opacity: 0;
+      animation: fadeIn 0.8s var(--ease-out-expo) 2s forwards;
+    }
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    /* ===== CUSTOM CURSOR ===== */
+    .cursor { display: none; }
+    @media (pointer: fine) {
+      .cursor {
+        display: block;
+        position: fixed; width: 20px; height: 20px;
+        border: 1px solid var(--coral);
+        border-radius: 50%;
+        pointer-events: none; z-index: 9999;
+        transform: translate(-50%, -50%);
+        transition: width 0.3s, height 0.3s, background 0.3s, border-color 0.3s;
+        mix-blend-mode: difference;
+      }
+      .cursor.hover {
+        width: 60px; height: 60px;
+        background: rgba(212, 133, 106, 0.15);
+        border-color: var(--coral-light);
+      }
+    }
+
+    /* ===== PARTICLE CANVAS ===== */
+    #particleCanvas {
+      position: fixed; inset: 0; z-index: 0;
+      pointer-events: none;
+      opacity: 0.4;
+    }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.25rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.5s, backdrop-filter 0.5s, padding 0.3s;
+    }
+    .nav.scrolled {
+      background: rgba(10, 46, 51, 0.92);
+      backdrop-filter: blur(20px) saturate(1.2);
+      padding: 0.85rem 2.5rem;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-light);
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .nav-logo-icon {
+      width: 28px; height: 28px;
+      border: 1.5px solid var(--coral);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; color: var(--coral);
+    }
+    .nav-links {
+      display: flex; gap: 2.5rem;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--coral);
+      transition: width 0.4s var(--ease-out-expo);
+    }
+    .nav-links a:hover { color: var(--text-light); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 5px;
+    }
+    .nav-toggle span {
+      width: 24px; height: 1.5px;
+      background: var(--text-light);
+      transition: all 0.3s;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--teal-950);
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 4rem;
+      overflow: hidden;
+    }
+    .hero-particles {
+      position: absolute; inset: 0;
+      overflow: hidden; pointer-events: none;
+    }
+    .hero-particle {
+      position: absolute;
+      width: 2px; height: 2px;
+      background: rgba(212, 133, 106, 0.4);
+      border-radius: 50%;
+      animation: float linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(0); opacity: 0; }
+      10% { opacity: 1; }
+      90% { opacity: 1; }
+      100% { transform: translateY(-100px) scale(1); opacity: 0; }
+    }
+    .hero-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(212,133,106,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,133,106,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      border: 1px solid var(--border-light);
+      border-radius: 100px;
+      padding: 0.5rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .hero-badge .dot {
+      width: 5px; height: 5px;
+      background: var(--coral);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 18vw, 16rem);
+      font-weight: 400;
+      line-height: 0.85;
+      color: var(--text-light);
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .hero-title .letter-g {
+      color: var(--coral);
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title .letter-g::after {
+      content: ''; position: absolute;
+      bottom: 8%; left: -5%;
+      width: 110%; height: 3px;
+      background: linear-gradient(90deg, var(--coral), transparent);
+      opacity: 0.5;
+    }
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.4rem, 3.5vw, 2.5rem);
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 4rem;
+      line-height: 1.3;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      max-width: 700px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .hero-stat {
+      position: relative;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .hero-stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .hero-stat-value {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+    .hero-stat:nth-child(4) .hero-stat-value {
+      position: relative;
+      display: inline-block;
+    }
+    .hero-stat:nth-child(4) .hero-stat-value::after {
+      content: '';
+      position: absolute;
+      right: -12px; top: 50%;
+      width: 6px; height: 6px;
+      background: var(--coral);
+      border-radius: 1px;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .hero-cta {
+      margin-top: 3rem;
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.5rem;
+      transition: color 0.3s, border-color 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .hero-cta:hover {
+      color: var(--coral);
+      border-color: var(--coral);
+    }
+    .hero-cta svg {
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+    .hero-cta:hover svg {
+      transform: translateY(3px);
+    }
+
+    /* ===== ANIMATED ENTRANCE ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
+
+    /* ===== SECTION SYSTEM ===== */
+    .section {
+      position: relative;
+      padding: 8rem 4rem;
+    }
+    .section-heading {
+      margin-bottom: 4rem;
+    }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--coral);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--teal-950);
+      max-width: 700px;
+    }
+    .section-title-light { color: var(--text-light); }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: var(--cream);
+      padding-top: 10rem;
+    }
+    .about-content {
+      max-width: 900px;
+    }
+    .about-statement {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--teal-950);
+    }
+    .about-statement strong {
+      font-weight: 600;
+      position: relative;
+    }
+    .about-statement strong::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 0;
+      width: 100%; height: 8px;
+      background: rgba(212, 133, 106, 0.2);
+      z-index: -1;
+    }
+
+    /* ===== PRINCIPLES ===== */
+    .principles {
+      background: var(--teal-950);
+      padding: 8rem 4rem;
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+    .principle-card {
+      padding: 2.5rem;
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      transition: border-color 0.4s, background 0.4s, transform 0.5s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+    .principle-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, var(--coral), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+    .principle-card:hover::before {
+      transform: scaleX(1);
+    }
+    .principle-card:hover {
+      border-color: rgba(212, 133, 106, 0.3);
+      background: rgba(212, 133, 106, 0.03);
+      transform: translateY(-4px);
+    }
+    .principle-number {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--coral);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.1em;
+    }
+    .principle-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    .principle-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== PACKAGES ===== */
+    .packages {
+      background: var(--cream);
+      padding: 8rem 4rem;
+    }
+    .packages-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 5rem;
+      align-items: center;
+    }
+    .packages-intro-text {
+      font-size: 1.1rem;
+      color: var(--warm-gray);
+      line-height: 1.8;
+    }
+    .packages-highlight {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 500;
+      color: var(--teal-950);
+      text-align: right;
+      position: relative;
+    }
+    .packages-highlight span {
+      font-size: 1rem;
+      font-family: var(--font-body);
+      color: var(--warm-gray);
+      display: block;
+      margin-top: 0.5rem;
+    }
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .package-card {
+      background: white;
+      border: 1px solid var(--border-dark);
+      border-radius: 6px;
+      padding: 2rem;
+      transition: all 0.5s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+    .package-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--coral), var(--coral-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s var(--ease-out-expo);
+    }
+    .package-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(10, 46, 51, 0.1);
+      border-color: rgba(212, 133, 106, 0.2);
+    }
+    .package-card:hover::after {
+      transform: scaleX(1);
+    }
+    .package-letter {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--coral);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+    .package-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--teal-950);
+      margin-bottom: 0.75rem;
+    }
+    .package-desc {
+      font-size: 0.82rem;
+      color: var(--warm-gray);
+      line-height: 1.65;
+    }
+    .package-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      background: rgba(212, 133, 106, 0.1);
+      color: var(--coral);
+      border-radius: 100px;
+    }
+    .package-card.featured {
+      border-color: rgba(212, 133, 106, 0.3);
+      background: linear-gradient(135deg, white, rgba(212,133,106,0.04));
+    }
+    .package-card.featured .package-letter {
+      color: var(--teal-950);
+      background: var(--coral);
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      color: white;
+    }
+
+    /* ===== PROCESS TIMELINE ===== */
+    .process {
+      background: var(--teal-950);
+      padding: 8rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .process-timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      width: 1px;
+      background: var(--border-light);
+      transform: translateX(-50%);
+    }
+    .process-line-fill {
+      position: absolute;
+      left: 50%; top: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--coral), var(--coral-light));
+      transform: translateX(-50%);
+      height: 0;
+      transition: height 0.1s linear;
+    }
+    .process-step {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 5rem;
+      position: relative;
+      align-items: center;
+    }
+    .process-step:last-child { margin-bottom: 0; }
+    .process-step:nth-child(even) .process-content { grid-column: 2; }
+    .process-step:nth-child(even) .process-visual { grid-column: 1; grid-row: 1; text-align: right; }
+    .process-visual {
+      position: relative;
+    }
+    .process-roman {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 7rem);
+      font-weight: 400;
+      color: rgba(245, 240, 235, 0.05);
+      line-height: 1;
+      transition: color 0.5s;
+    }
+    .process-step.active .process-roman {
+      color: rgba(212, 133, 106, 0.15);
+    }
+    .process-dot {
+      position: absolute;
+      left: 50%; top: 50%;
+      width: 12px; height: 12px;
+      background: var(--teal-950);
+      border: 2px solid var(--coral);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .process-step.active .process-dot {
+      background: var(--coral);
+      box-shadow: 0 0 20px rgba(212, 133, 106, 0.4);
+    }
+    .process-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+    .process-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== TEAM ===== */
+    .team {
+      background: var(--cream-dark);
+      padding: 8rem 4rem;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+      max-width: 1000px;
+    }
+    .team-member {
+      position: relative;
+      background: white;
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+      padding: 3rem;
+      transition: all 0.5s var(--ease-out-expo);
+      overflow: hidden;
+    }
+    .team-member::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--coral), var(--coral-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+    .team-member:hover::before {
+      transform: scaleX(1);
+    }
+    .team-member:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(10, 46, 51, 0.08);
+      border-color: rgba(212, 133, 106, 0.2);
+    }
+    .team-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .team-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal-800), var(--teal-950));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text-light);
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .team-avatar::after {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, rgba(212,133,106,0.2), transparent);
+    }
+    .team-info-role {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 0.4rem;
+    }
+    .team-info-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--teal-950);
+      margin-bottom: 0.15rem;
+    }
+    .team-info-title {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+    }
+    .team-desc {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .team-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--teal-700);
+      line-height: 1.6;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--coral);
+    }
+
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      background: var(--teal-950);
+      padding: 8rem 4rem;
+      overflow: hidden;
+    }
+    .testimonials-carousel {
+      display: flex;
+      gap: 2rem;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+    .testimonial-card {
+      min-width: 500px;
+      max-width: 500px;
+      padding: 2.5rem;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      transition: border-color 0.3s;
+    }
+    .testimonial-card:hover {
+      border-color: rgba(212, 133, 106, 0.3);
+    }
+    .testimonial-stars {
+      display: flex; gap: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-stars svg {
+      width: 16px; height: 16px;
+      fill: var(--coral);
+    }
+    .testimonial-text {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .testimonial-author {
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--coral), var(--coral-light));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: white;
+      font-weight: 500;
+    }
+    .testimonial-name {
+      font-weight: 600;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    .testimonial-role {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .testimonials-nav {
+      display: flex; justify-content: center; gap: 1rem;
+      margin-top: 3rem;
+    }
+    .testimonials-nav button {
+      width: 48px; height: 48px;
+      border: 1px solid var(--border-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .testimonials-nav button:hover {
+      border-color: var(--coral);
+      color: var(--coral);
+      background: rgba(212, 133, 106, 0.1);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact {
+      background: var(--cream);
+      padding: 8rem 4rem;
+      position: relative;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      max-width: 1100px;
+    }
+    .contact-info-item {
+      margin-bottom: 2rem;
+    }
+    .contact-info-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 0.5rem;
+    }
+    .contact-info-value {
+      font-size: 1rem;
+      color: var(--teal-950);
+    }
+    .contact-info-value a {
+      position: relative;
+      transition: color 0.3s;
+    }
+    .contact-info-value a::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--coral);
+      transition: width 0.4s var(--ease-out-expo);
+    }
+    .contact-info-value a:hover {
+      color: var(--coral);
+    }
+    .contact-info-value a:hover::after {
+      width: 100%;
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 0.5rem;
+    }
+    .form-label .optional {
+      color: var(--coral);
+      font-size: 0.6rem;
+    }
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border-dark);
+      border-radius: 4px;
+      background: white;
+      font-size: 0.9rem;
+      color: var(--teal-950);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--coral);
+      box-shadow: 0 0 0 3px rgba(212, 133, 106, 0.1);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6560' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+    }
+    .form-submit {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      padding: 1rem 2.5rem;
+      background: var(--teal-950);
+      color: var(--text-light);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      border-radius: 4px;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+    .form-submit:hover {
+      background: var(--coral);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(212, 133, 106, 0.3);
+    }
+    .form-submit svg {
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+    .form-submit:hover svg {
+      transform: translateX(4px);
+    }
+    .form-note {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--warm-gray);
+    }
+    .form-success {
+      display: none;
+      padding: 3rem 2rem;
+      background: white;
+      border: 1px solid var(--border-dark);
+      border-radius: 6px;
+      text-align: center;
+      border-top: 3px solid #2d7a5f;
+    }
+    .form-success.show {
+      display: block;
+    }
+    .form-success-icon {
+      width: 56px; height: 56px;
+      background: #2d7a5f;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+    .form-success h4 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--teal-950);
+      margin-bottom: 0.75rem;
+    }
+    .form-success p {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      line-height: 1.6;
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--teal-950);
+      padding: 4rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+    }
+    .footer-brand {
+      max-width: 300px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+    .footer-tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex; gap: 3rem;
+    }
+    .footer-links a {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--coral); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-copyright {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .footer-principle {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
+
+    /* ===== MARQUEE ===== */
+    .marquee {
+      background: var(--cream-dark);
+      padding: 1.5rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      animation: marqueeScroll 30s linear infinite;
+    }
+    .marquee-item {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      padding: 0 3rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .marquee-item::after {
+      content: '';
+      width: 4px; height: 4px;
+      background: var(--coral);
+      border-radius: 50%;
+    }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* ===== COUNTER ANIMATION ===== */
+    .counter {
+      font-variant-numeric: tabular-nums;
+    }
+
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu {
+      position: fixed; inset: 0; z-index: 999;
+      background: var(--teal-950);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 2rem;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s, visibility 0.4s;
+    }
+    .mobile-menu.open {
+      opacity: 1; visibility: visible;
+    }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--text-light);
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--coral); }
+    .mobile-menu-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      color: var(--text-light);
+      font-size: 1.5rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 1024px) {
+      .packages-grid { grid-template-columns: repeat(2, 1fr); }
+      .principles-grid { grid-template-columns: 1fr; }
+      .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+    }
+    @media (max-width: 768px) {
+      .section { padding: 5rem 1.5rem; }
+      .hero { padding: 7rem 1.5rem 4rem; }
+      .nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .hero-stats { grid-template-columns: repeat(2, 1fr); }
+      .hero-title { font-size: clamp(3.5rem, 15vw, 7rem); }
+      .packages-grid { grid-template-columns: 1fr; }
+      .packages-intro { grid-template-columns: 1fr; }
+      .packages-highlight { text-align: left; }
+      .team-grid { grid-template-columns: 1fr; }
+      .process-timeline::before { left: 1rem; }
+      .process-line-fill { left: 1rem; }
+      .process-step { grid-template-columns: 1fr; gap: 1rem; }
+      .process-step:nth-child(even) .process-content { grid-column: 1; }
+      .process-step:nth-child(even) .process-visual { grid-column: 1; grid-row: auto; text-align: left; }
+      .process-dot { left: 1rem; }
+      .process-roman { font-size: 4rem; }
+      .testimonial-card { min-width: 85vw; max-width: 85vw; }
+      .footer-grid { flex-direction: column; gap: 2rem; }
+      .footer-links { flex-wrap: wrap; gap: 1.5rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--teal-800); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--teal-700); }
+
+    /* ===== SELECTION ===== */
+    ::selection {
+      background: rgba(212, 133, 106, 0.3);
+      color: var(--teal-950);
+    }
+  </style>
 </head>
 <body>
 
-<a href="#main" class="skip">Παράκαμψη στο περιεχόμενο</a>
+  <!-- Custom Cursor -->
+  <div class="cursor" id="cursor"></div>
 
-<header class="nav" role="banner">
-  <a href="#" class="nav__brand" aria-label="AGORA Strategies, αρχική">
-    <img src="/icon-petrol.png" alt="" width="40" height="40">
-    <span>Agora Strategies</span>
-  </a>
-  <nav class="nav__links" aria-label="Κύρια πλοήγηση">
-    <a href="#packages">Πακέτα</a>
-    <a href="#approach">Φιλοσοφία</a>
-    <a href="#team">Ομάδα</a>
-    <a href="#contact">Επικοινωνία</a>
-  </nav>
-</header>
-
-<main id="main">
-
-<!-- HERO: τυπογραφική πλατεία -->
-<section class="hero" aria-labelledby="hero-title">
-  <div class="hero__plinth" aria-hidden="true">
-    <div class="grid-overlay"></div>
+  <!-- Preloader -->
+  <div class="preloader" id="preloader">
+    <div class="preloader-logo">
+      <span class="letter" style="animation-delay:0.1s">A</span><span class="letter g" style="animation-delay:0.2s">G</span><span class="letter" style="animation-delay:0.3s">O</span><span class="letter" style="animation-delay:0.4s">R</span><span class="letter" style="animation-delay:0.5s">A</span>
+    </div>
+    <div class="preloader-line"></div>
+    <div class="preloader-year">MMXXVI &mdash; ΑΘΗΝΑ</div>
   </div>
-  <div class="hero__inner">
-    <div class="hero__label">
-      <span class="dot"></span>
-      <span>Πολιτική στρατηγική &amp; επικοινωνία</span>
-      <span class="hero__label-sep">·</span>
-      <span>Τοπική αυτοδιοίκηση</span>
-    </div>
-    <h1 id="hero-title" class="hero__word" aria-label="Agora Strategies">
-      <span class="hero__word-glyph" data-i="1">A</span>
-      <span class="hero__word-glyph" data-i="2">G</span>
-      <span class="hero__word-glyph" data-i="3">O</span>
-      <span class="hero__word-glyph" data-i="4">R</span>
-      <span class="hero__word-glyph" data-i="5">A</span>
-    </h1>
-    <p class="hero__tagline">Από την πλατεία ως το feed.</p>
-    <div class="hero__meta">
-      <div class="hero__meta-block">
-        <span class="meta-label">Έτος ίδρυσης</span>
-        <span class="meta-value">MMXXVI</span>
-      </div>
-      <div class="hero__meta-block">
-        <span class="meta-label">Έδρα</span>
-        <span class="meta-value">Αθήνα</span>
-      </div>
-      <div class="hero__meta-block">
-        <span class="meta-label">Εμβέλεια</span>
-        <span class="meta-value">Πανελλαδική</span>
-      </div>
-      <div class="hero__meta-block">
-        <span class="meta-label">Πακέτα</span>
-        <span class="meta-value">11</span>
-      </div>
-    </div>
-    <a href="#packages" class="hero__cue">
-      <span>Έντεκα περιοχές ευθύνης</span>
-      <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v10m0 0l4-4m-4 4l-4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+
+  <!-- Mobile Menu -->
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#packages" onclick="closeMenu()">Πακέτα</a>
+    <a href="#philosophy" onclick="closeMenu()">Φιλοσοφία</a>
+    <a href="#process" onclick="closeMenu()">Διαδικασία</a>
+    <a href="#team" onclick="closeMenu()">Ομάδα</a>
+    <a href="#contact" onclick="closeMenu()">Επικοινωνία</a>
+    <button class="mobile-menu-close" onclick="closeMenu()">&#10005;</button>
+  </div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <a href="#" class="nav-logo">
+      <span class="nav-logo-icon">A</span>
+      Agora Strategies
     </a>
-  </div>
-</section>
-
-<!-- THESIS: μία φράση που λέει ποιοι είμαστε -->
-<section class="thesis" aria-labelledby="thesis-title">
-  <div class="thesis__inner">
-    <span class="kicker">Η εταιρεία σε μία φράση</span>
-    <p id="thesis-title" class="thesis__body">
-      Αναλαμβάνουμε <em>ολόκληρη την καμπάνια</em> ενός αυτοδιοικητικού υποψηφίου, από την έρευνα και το μήνυμα ως το γραφείο και τις συγκεντρώσεις, με ένα ενιαίο πλάνο και μετρήσιμη πορεία. Έναν υποψήφιο ανά δήμο, μία ομάδα από πίσω.
-    </p>
-    <div class="thesis__pillars">
-      <div class="pillar">
-        <span class="pillar__no">01</span>
-        <h3>Πρώτα τα δεδομένα</h3>
-        <p>Η στρατηγική βγαίνει από έρευνα μέσα στον δήμο, με στόχους μετρήσιμους σε σταυρούς και ποσοστά. Οι εντυπώσεις δεν αρκούν για να κριθεί μια κάλπη.</p>
-      </div>
-      <div class="pillar">
-        <span class="pillar__no">02</span>
-        <h3>Ένα πλάνο, δύο πεδία</h3>
-        <p>Η πλατεία και το feed δουλεύουν μαζί. Η συγκέντρωση τροφοδοτεί το περιεχόμενο και το περιεχόμενο γεμίζει την επόμενη αίθουσα.</p>
-      </div>
-      <div class="pillar">
-        <span class="pillar__no">03</span>
-        <h3>Λογοδοσία κάθε μήνα</h3>
-        <p>Αναφορά με ό,τι έγινε, τι απέδωσε και τι αλλάζει. Ο υποψήφιος ξέρει πάντα πού βρίσκεται και τι ακολουθεί.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PACKAGES: 11 πακέτα ως κατάλογος -->
-<section class="packages" id="packages" aria-labelledby="packages-title">
-  <div class="packages__head">
-    <span class="kicker kicker--terra">Τι αναλαμβάνουμε</span>
-    <h2 id="packages-title">Έντεκα πακέτα, μία καμπάνια.</h2>
-    <p class="packages__intro">Το Πακέτο Α προηγείται πάντα, γιατί όλα τα υπόλοιπα καταναλώνουν ό,τι παράγει: την έρευνα, το μήνυμα και το ημερολόγιο δράσεων. Τα Β ως ΙΑ ενεργοποιούνται αρθρωτά, ανάλογα με το μέγεθος του δήμου και την ένταση της μάχης.</p>
-  </div>
-  <ol class="packages__list" role="list">
-    <li class="pkg pkg--anchor">
-      <span class="pkg__letter">Α</span>
-      <h3 class="pkg__title">Στρατηγική &amp; Έρευνα</h3>
-      <p class="pkg__body">Το θεμέλιο. Διάγνωση, αρχιτεκτονική μηνύματος, ημερολόγιο δράσεων τεσσάρων ως έξι μηνών. Προαπαιτούμενο για όλα τα υπόλοιπα.</p>
-      <span class="pkg__tag">Πρώτο στάδιο</span>
-    </li>
-    <li class="pkg">
-      <span class="pkg__letter">Β</span>
-      <h3 class="pkg__title">Οργάνωση Γραφείου</h3>
-      <p class="pkg__body">CRM επαφών, σύστημα παρακολούθησης δράσεων, διαχείριση εκδηλώσεων. Ο σταυρός χτίζεται σε μήνες επαφών και χωρίς σύστημα χάνονται στον δρόμο.</p>
-    </li>
-    <li class="pkg">
-      <span class="pkg__letter">Γ</span>
-      <h3 class="pkg__title">Social Media &amp; Περιεχόμενο</h3>
-      <p class="pkg__body">Μηνιαία παραγωγή 12 ως 20 αναρτήσεων, stories και reels από το πεδίο, διαχείριση και διαφημίσεις με γεωγραφική στόχευση.</p>
-    </li>
-    <li class="pkg">
-      <span class="pkg__letter">Δ</span>
-      <h3 class="pkg__title">Παραγωγή Βίντεο</h3>
-      <p class="pkg__body">Κεντρικό σποτ, θέσεις σε 60 δευτερόλεπτα, κάλυψη συγκεντρώσεων με aftermovie, μαρτυρίες δημοτών. Γύρισμα στο πεδίο, όχι σε στούντιο.</p>
-    </li>
-    <li class="pkg">
-      <span class="pkg__letter">Ε</span>
-      <h3 class="pkg__title">Φυλλάδια &amp; Έντυπα</h3>
-      <p class="pkg__body">Κεντρικό φυλλάδιο, θεματικά μονόφυλλα ανά γειτονιά, αφίσα, κάρτα υποψηφίου, αρχεία έτοιμα για το τυπογραφείο.</p>
-    </li>
-    <li class="pkg">
-      <span class="pkg__letter">ΣΤ</span>
-      <h3 class="pkg__title">Ταυτότητα &amp; Κάρτες</h3>
-      <p class="pkg__body">Λογότυπο συνδυασμού, χρωματική παλέτα, επαγγελματικές κάρτες, templates social, σύντομος οδηγός χρήσης.</p>
-    </li>
-    <li class="pkg">
-      <span class="pkg__letter">Ζ</span>
-      <h3 class="pkg__title">Λόγοι &amp; Αρθρογραφία</h3>
-      <p class="pkg__body">Ομιλίες, άρθρα σε τοπικά μέσα, θέσεις ανά τομέα, απαντητικά κείμενα. Μία φωνή παντού, από το βήμα ως την οθόνη.</p>
-    </li>
-    <li class="pkg">
-      <span class="pkg__letter">Η</span>
-      <h3 class="pkg__title">Προσωπική Εικόνα</h3>
-      <p class="pkg__body">Διάγνωση εικόνας, ενδυματολογικός κώδικας τριών περιστάσεων, ντουλάπα καμπάνιας. Στόχος δεν είναι ένας άλλος άνθρωπος, αλλά ο ίδιος στην πιο φροντισμένη εκδοχή του.</p>
-    </li>
-    <li class="pkg">
-      <span class="pkg__letter">Θ</span>
-      <h3 class="pkg__title">Φωτογράφιση &amp; Οπτικός Οδηγός</h3>
-      <p class="pkg__body">Κεντρική φωτογράφιση, 60 ως 100 επεξεργασμένες λήψεις, γραπτές φωτο-οδηγίες για την ομάδα ώστε κάθε περιοδεία να βγάζει υλικό.</p>
-    </li>
-    <li class="pkg">
-      <span class="pkg__letter">Ι</span>
-      <h3 class="pkg__title">Media Training &amp; Debate</h3>
-      <p class="pkg__body">Τέσσερις ως έξι συνεδρίες κάμερας και συνεντεύξεων, δύο προσομοιώσεις debate, πρόβα των δύσκολων σεναρίων του δήμου.</p>
-    </li>
-    <li class="pkg">
-      <span class="pkg__letter">ΙΑ</span>
-      <h3 class="pkg__title">Ιστοσελίδα Υποψηφίου</h3>
-      <p class="pkg__body">Η ψηφιακή βάση: βιογραφικό, θέσεις, φόρμες που τροφοδοτούν το CRM, σελίδες προορισμού για κάθε καμπάνια. Ο μόνος χώρος που ανήκει στον υποψήφιο.</p>
-    </li>
-    <li class="pkg pkg--info" aria-hidden="true">
-      <span class="pkg__info-label">Σημείωση</span>
-      <p>Τα πακέτα συντίθενται αρθρωτά, αλλά υπακούουν σε μία αρχή: ένας υποψήφιος ανά δήμο.</p>
-    </li>
-  </ol>
-  <div class="packages__foot">
-    <p>Το πλήρες κοστολόγιο ανά μέγεθος δήμου παραδίδεται γραπτά μετά την πρώτη συνάντηση. Ενδεικτικά για πλήρη καμπάνια έξι μηνών: 16-24 χιλ. ευρώ σε μικρό δήμο, 28-44 σε μεσαίο, 50-85 σε μεγάλο, χωρίς ΦΠΑ και διαφημιστική δαπάνη.</p>
-  </div>
-</section>
-
-<!-- APPROACH: πώς δουλεύουμε στην πράξη -->
-<section class="approach" id="approach" aria-labelledby="approach-title">
-  <div class="approach__inner">
-    <div class="approach__col approach__col--lead">
-      <span class="kicker">Πώς δουλεύουμε</span>
-      <h2 id="approach-title">Από τη διάγνωση στην κάλπη, με ημερολόγιο.</h2>
-      <p>Κάθε συνεργασία περνά από πέντε σταθερά στάδια. Ο ρυθμός συμπιέζεται σε σύντομες καμπάνιες, αλλά η σειρά δεν αλλάζει. Πρώτα η έρευνα, μετά η παραγωγή.</p>
-    </div>
-    <ol class="approach__steps" role="list">
-      <li>
-        <span class="step__no">I</span>
-        <div>
-          <h3>Διάγνωση</h3>
-          <p>Έρευνα στο πεδίο, αποτύπωση αντιπάλων, χαρτογράφηση ζητημάτων ανά δημοτική ενότητα.</p>
-        </div>
-      </li>
-      <li>
-        <span class="step__no">II</span>
-        <div>
-          <h3>Στρατηγική</h3>
-          <p>Κεντρικό αφήγημα, τρεις πυλώνες, θέσεις ανά τομέα. Κάθε ισχυρισμός εξηγεί το γιατί, όχι μόνο το τι.</p>
-        </div>
-      </li>
-      <li>
-        <span class="step__no">III</span>
-        <div>
-          <h3>Ημερολόγιο</h3>
-          <p>Δράσεις και περιεχόμενο ανά εβδομάδα. Κάθε συγκέντρωση μπαίνει με στόχο, λίστα και πλάνο αξιοποίησης.</p>
-        </div>
-      </li>
-      <li>
-        <span class="step__no">IV</span>
-        <div>
-          <h3>Εκτέλεση</h3>
-          <p>Πεδίο και ψηφιακό, συντονισμένα από τους ίδιους δύο ανθρώπους που έγραψαν το πλάνο.</p>
-        </div>
-      </li>
-      <li>
-        <span class="step__no">V</span>
-        <div>
-          <h3>Μέτρηση</h3>
-          <p>Δείκτες, μηνιαία αναφορά, αναπροσαρμογή. Η καμπάνια κρίνεται σε αριθμούς, όχι σε εντυπώσεις.</p>
-        </div>
-      </li>
-    </ol>
-  </div>
-</section>
-
-<!-- TEAM -->
-<section class="team" id="team" aria-labelledby="team-title">
-  <span class="kicker">Οι άνθρωποι</span>
-  <h2 id="team-title">Δύο ισότιμοι συνεταίροι, διακριτές ευθύνες.</h2>
-  <div class="team__cards">
-    <article class="person">
-      <div class="person__id">
-        <span class="person__mono">ΚΚ</span>
-        <span class="person__role">Συνιδρυτής</span>
-      </div>
-      <h3>Κωνσταντίνος</h3>
-      <p class="person__title">Διευθυντής Στρατηγικής &amp; Ψηφιακής Επικοινωνίας</p>
-      <p class="person__body">Σχεδιάζει το κεντρικό αφήγημα και τους άξονες. Διευθύνει social media, περιεχόμενο και διαφημίσεις. Γράφει λόγους, άρθρα και θέσεις.</p>
-      <blockquote>«Κάθε ανάρτηση και κάθε ομιλία υπηρετούν το ίδιο αφήγημα.»</blockquote>
-    </article>
-    <article class="person">
-      <div class="person__id">
-        <span class="person__mono">ΣΣ</span>
-        <span class="person__role">Συνιδρυτής</span>
-      </div>
-      <h3>Σπύρος</h3>
-      <p class="person__title">Διευθυντής Καμπάνιας, Πεδίου &amp; Δημοσίων Σχέσεων</p>
-      <p class="person__body">Στήνει την ομάδα, τις ροές και την καθημερινή λειτουργία του γραφείου. Διαχειρίζεται συγκεντρώσεις, δείπνα, περιοδείες και το δίκτυο επαφών.</p>
-      <blockquote>«Καμία επαφή δεν χάνεται, καμία υποχρέωση δεν ξεχνιέται.»</blockquote>
-    </article>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section class="contact" id="contact" aria-labelledby="contact-title">
-  <div class="contact__inner">
-    <div class="contact__lead">
-      <span class="kicker kicker--sand">Πρώτη συνάντηση</span>
-      <h2 id="contact-title">Ας μιλήσουμε για τον δικό σας δήμο.</h2>
-      <p>Η πρώτη συνάντηση χαρτογράφησης γίνεται χωρίς χρέωση και χωρίς δέσμευση. Μία ώρα πάνω στον χάρτη του δήμου σας, για να δούμε πού βρίσκεστε και τι χρειάζεται η διαδρομή ως την κάλπη.</p>
-      <dl class="contact__details">
-        <div><dt>Email</dt><dd><a href="mailto:info@agorastrategies.gr">info@agorastrategies.gr</a></dd></div>
-        <div><dt>Έδρα</dt><dd>Αθήνα</dd></div>
-        <div><dt>Web</dt><dd>agorastrategies.gr</dd></div>
-      </dl>
-    </div>
-    <form
-      class="contact__form"
-      name="contact"
-      method="POST"
-      data-netlify="true"
-      data-netlify-honeypot="bot-field"
-      action="/thanks.html"
-      aria-labelledby="form-title"
-    >
-      <p class="form__title" id="form-title">Πες μας λίγα λόγια.</p>
-      <input type="hidden" name="form-name" value="contact">
-      <p class="hp" hidden aria-hidden="true">
-        <label>Μην το συμπληρώσεις: <input name="bot-field"></label>
-      </p>
-      <div class="field">
-        <label for="f-name">Ονοματεπώνυμο</label>
-        <input id="f-name" name="name" type="text" required autocomplete="name">
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="f-email">Email</label>
-          <input id="f-email" name="email" type="email" required autocomplete="email">
-        </div>
-        <div class="field">
-          <label for="f-phone">Τηλέφωνο <span class="opt">προαιρετικό</span></label>
-          <input id="f-phone" name="phone" type="tel" autocomplete="tel">
-        </div>
-      </div>
-      <div class="field-row">
-        <div class="field">
-          <label for="f-municipality">Δήμος ή περιφέρεια</label>
-          <input id="f-municipality" name="municipality" type="text" required>
-        </div>
-        <div class="field">
-          <label for="f-role">Ιδιότητα</label>
-          <select id="f-role" name="role" required>
-            <option value="">Επιλέξτε</option>
-            <option>Υποψήφιος/α δήμαρχος</option>
-            <option>Επικεφαλής συνδυασμού</option>
-            <option>Δημοτικός σύμβουλος</option>
-            <option>Στέλεχος ομάδας</option>
-            <option>Άλλο</option>
-          </select>
-        </div>
-      </div>
-      <div class="field">
-        <label for="f-message">Τι θα θέλατε να συζητήσουμε;</label>
-        <textarea id="f-message" name="message" rows="4" required></textarea>
-      </div>
-      <button type="submit" class="btn">Στείλτε το μήνυμα <span aria-hidden="true">→</span></button>
-      <p class="form__note">Απαντάμε εντός 24 ωρών σε εργάσιμες ημέρες. Τα στοιχεία σας δεν προωθούνται σε τρίτους.</p>
-    </form>
-  </div>
-</section>
-
-</main>
-
-<footer class="foot" role="contentinfo">
-  <div class="foot__top">
-    <div class="foot__brand">
-      <img src="/icon-petrol.png" alt="" width="32" height="32">
-      <div>
-        <span class="foot__name">Agora Strategies</span>
-        <span class="foot__sub">Από την πλατεία ως το feed.</span>
-      </div>
-    </div>
-    <nav class="foot__links" aria-label="Υποσέλιδο">
+    <div class="nav-links">
       <a href="#packages">Πακέτα</a>
-      <a href="#approach">Φιλοσοφία</a>
+      <a href="#philosophy">Φιλοσοφία</a>
       <a href="#team">Ομάδα</a>
       <a href="#contact">Επικοινωνία</a>
-    </nav>
-  </div>
-  <div class="foot__bottom">
-    <span>© 2026 Agora Strategies. Πολιτική στρατηγική &amp; επικοινωνία για την τοπική αυτοδιοίκηση.</span>
-    <span class="foot__hairline" aria-hidden="true"></span>
-    <span>Έναν υποψήφιο ανά δήμο.</span>
-  </div>
-</footer>
+    </div>
+    <div class="nav-toggle" onclick="openMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
 
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero-grid"></div>
+    <div class="hero-particles" id="heroParticles"></div>
+
+    <div class="hero-badge" id="heroBadge">
+      <span class="dot"></span>
+      Πολιτική στρατηγική &amp; επικοινωνία &nbsp;&middot;&nbsp; Τοπική αυτοδιοίκηση
+    </div>
+
+    <h1 class="hero-title" id="heroTitle">
+      <span class="letter">A</span><span class="letter letter-g">G</span><span class="letter">O</span><span class="letter">R</span><span class="letter">A</span>
+    </h1>
+
+    <p class="hero-subtitle" id="heroSubtitle">Από την πλατεία ως το feed.</p>
+
+    <div class="hero-stats" id="heroStats">
+      <div class="hero-stat">
+        <div class="hero-stat-label">Έτος ίδρυσης</div>
+        <div class="hero-stat-value">MMXXVI</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Έδρα</div>
+        <div class="hero-stat-value">Αθήνα</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Εμβέλεια</div>
+        <div class="hero-stat-value">Πανελλαδική</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-label">Πακέτα</div>
+        <div class="hero-stat-value counter" data-target="11">0</div>
+      </div>
+    </div>
+
+    <a href="#philosophy" class="hero-cta" id="heroCta">
+      Έντεκα περιοχές ευθύνης
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
+    </a>
+  </section>
+
+  <!-- Marquee -->
+  <div class="marquee">
+    <div class="marquee-track">
+      <span class="marquee-item">Πολιτική Στρατηγική</span>
+      <span class="marquee-item">Επικοινωνία</span>
+      <span class="marquee-item">Τοπική Αυτοδιοίκηση</span>
+      <span class="marquee-item">Social Media</span>
+      <span class="marquee-item">Έρευνα</span>
+      <span class="marquee-item">Οργάνωση</span>
+      <span class="marquee-item">Παραγωγή Βίντεο</span>
+      <span class="marquee-item">Δημόσιες Σχέσεις</span>
+      <span class="marquee-item">Πολιτική Στρατηγική</span>
+      <span class="marquee-item">Επικοινωνία</span>
+      <span class="marquee-item">Τοπική Αυτοδιοίκηση</span>
+      <span class="marquee-item">Social Media</span>
+      <span class="marquee-item">Έρευνα</span>
+      <span class="marquee-item">Οργάνωση</span>
+      <span class="marquee-item">Παραγωγή Βίντεο</span>
+      <span class="marquee-item">Δημόσιες Σχέσεις</span>
+    </div>
+  </div>
+
+  <!-- About -->
+  <section class="section about" id="philosophy">
+    <div class="about-content reveal">
+      <div class="section-heading">
+        <div class="section-eyebrow">Η εταιρεία σε μία φράση</div>
+      </div>
+      <p class="about-statement">
+        Αναλαμβάνουμε <strong>ολόκληρη την καμπάνια</strong> ενός αυτοδιοικητικού υποψηφίου, από την έρευνα και το μήνυμα ως το γραφείο και τις συγκεντρώσεις, με ένα <strong>ενιαίο πλάνο</strong> και μετρήσιμη πορεία. Έναν υποψήφιο ανά δήμο, μία ομάδα από πίσω.
+      </p>
+    </div>
+  </section>
+
+  <!-- Principles -->
+  <section class="principles" id="principles">
+    <div class="section-heading reveal">
+      <div class="section-eyebrow" style="color: var(--coral-light);">Οι τρεις αρχές</div>
+      <h2 class="section-title section-title-light">Πάνω στις οποίες χτίζουμε</h2>
+    </div>
+    <div class="principles-grid">
+      <div class="principle-card reveal reveal-delay-1">
+        <div class="principle-number">01</div>
+        <h3 class="principle-title">Πρώτα τα δεδομένα</h3>
+        <p class="principle-desc">Η στρατηγική βγαίνει από έρευνα μέσα στον δήμο, με στόχους μετρήσιμους σε σταυρούς και ποσοστά. Οι εντυπώσεις δεν αρκούν για να κριθεί μια κάλπη.</p>
+      </div>
+      <div class="principle-card reveal reveal-delay-2">
+        <div class="principle-number">02</div>
+        <h3 class="principle-title">Ένα πλάνο, δύο πεδία</h3>
+        <p class="principle-desc">Η πλατεία και το feed δουλεύουν μαζί. Η συγκέντρωση τροφοδοτεί το περιεχόμενο και το περιεχόμενο γεμίζει την επόμενη αίθουσα.</p>
+      </div>
+      <div class="principle-card reveal reveal-delay-3">
+        <div class="principle-number">03</div>
+        <h3 class="principle-title">Λογοδοσία κάθε μήνα</h3>
+        <p class="principle-desc">Αναφορά με ό,τι έγινε, τι απέδωσε και τι αλλάζει. Ο υποψήφιος ξέρει πάντα πού βρίσκεται και τι ακολουθεί.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section class="packages" id="packages">
+    <div class="section-heading reveal">
+      <div class="section-eyebrow">Τι αναλαμβάνουμε</div>
+      <h2 class="section-title">Έντεκα πακέτα, μία καμπάνια.</h2>
+    </div>
+
+    <div class="packages-intro reveal reveal-delay-1">
+      <p class="packages-intro-text">Το Πακέτο Α προηγείται πάντα, γιατί όλα τα υπόλοιπα καταναλώνουν ό,τι παράγει: την έρευνα, το μήνυμα και το ημερολόγιο δράσεων. Τα Β ως ΙΑ ενεργοποιούνται αρθρωτά, ανάλογα με το μέγεθος του δήμου και την ένταση της μάχης.</p>
+      <div class="packages-highlight">11<span>περιοχές ευθύνης</span></div>
+    </div>
+
+    <div class="packages-grid">
+      <div class="package-card featured reveal reveal-delay-1">
+        <div class="package-letter">Α</div>
+        <h3 class="package-name">Στρατηγική &amp; Έρευνα</h3>
+        <p class="package-desc">Το θεμέλιο. Διάγνωση, αρχιτεκτονική μηνύματος, ημερολόγιο δράσεων τεσσάρων ως έξι μηνών. Προαπαιτούμενο για όλα τα υπόλοιπα.</p>
+        <span class="package-tag">Πρώτο στάδιο</span>
+      </div>
+      <div class="package-card reveal reveal-delay-2">
+        <div class="package-letter">Β</div>
+        <h3 class="package-name">Οργάνωση Γραφείου</h3>
+        <p class="package-desc">CRM επαφών, σύστημα παρακολούθησης δράσεων, διαχείριση εκδηλώσεων. Ο σταυρός χτίζεται σε μήνες επαφών και χωρίς σύστημα χάνονται στον δρόμο.</p>
+      </div>
+      <div class="package-card reveal reveal-delay-3">
+        <div class="package-letter">Γ</div>
+        <h3 class="package-name">Social Media &amp; Περιεχόμενο</h3>
+        <p class="package-desc">Μηνιαία παραγωγή 12 ως 20 αναρτήσεων, stories και reels από το πεδίο, διαχείριση και διαφημίσεις με γεωγραφική στόχευση.</p>
+      </div>
+      <div class="package-card reveal reveal-delay-1">
+        <div class="package-letter">Δ</div>
+        <h3 class="package-name">Παραγωγή Βίντεο</h3>
+        <p class="package-desc">Κεντρικό σποτ, θέσεις σε 60 δευτερόλεπτα, κάλυψη συγκεντρώσεων με aftermovie, μαρτυρίες δημοτών. Γύρισμα στο πεδίο, όχι σε στούντιο.</p>
+      </div>
+      <div class="package-card reveal reveal-delay-2">
+        <div class="package-letter">Ε</div>
+        <h3 class="package-name">Φυλλάδια &amp; Έντυπα</h3>
+        <p class="package-desc">Κεντρικό φυλλάδιο, θεματικά μονόφυλλα ανά γειτονιά, αφίσα, κάρτα υποψηφίου, αρχεία έτοιμα για το τυπογραφείο.</p>
+      </div>
+      <div class="package-card reveal reveal-delay-3">
+        <div class="package-letter">ΣΤ</div>
+        <h3 class="package-name">Ταυτότητα &amp; Κάρτες</h3>
+        <p class="package-desc">Λογότυπο συνδυασμού, χρωματική παλέτα, επαγγελματικές κάρτες, templates social, σύντομος οδηγός χρήσης.</p>
+      </div>
+      <div class="package-card reveal reveal-delay-1">
+        <div class="package-letter">Ζ</div>
+        <h3 class="package-name">Λόγοι &amp; Αρθρογραφία</h3>
+        <p class="package-desc">Ομιλίες, άρθρα σε τοπικά μέσα, θέσεις ανά τομέα, απαντητικά κείμενα. Μία φωνή παντού, από το βήμα ως την οθόνη.</p>
+      </div>
+      <div class="package-card reveal reveal-delay-2">
+        <div class="package-letter">Η</div>
+        <h3 class="package-name">Προσωπική Εικόνα</h3>
+        <p class="package-desc">Διάγνωση εικόνας, ενδυματολογικός κώδικας τριών περιστάσεων, ντουλάπα καμπάνιας. Στόχος δεν είναι ένας άλλος άνθρωπος, αλλά ο ίδιος στην πιο φροντισμένη εκδοχή του.</p>
+      </div>
+      <div class="package-card reveal reveal-delay-3">
+        <div class="package-letter">Θ</div>
+        <h3 class="package-name">Φωτογράφιση &amp; Οπτικός Οδηγός</h3>
+        <p class="package-desc">Κεντρική φωτογράφιση, 60 ως 100 επεξεργασμένες λήψεις, γραπτές φωτο-οδηγίες για την ομάδα ώστε κάθε περιοδεία να βγάζει υλικό.</p>
+      </div>
+      <div class="package-card reveal reveal-delay-1">
+        <div class="package-letter">Ι</div>
+        <h3 class="package-name">Media Training &amp; Debate</h3>
+        <p class="package-desc">Τέσσερις ως έξι συνεδρίες κάμερας και συνεντεύξεων, δύο προσομοιώσεις debate, πρόβα των δύσκολων σεναρίων του δήμου.</p>
+      </div>
+      <div class="package-card reveal reveal-delay-2">
+        <div class="package-letter">ΙΑ</div>
+        <h3 class="package-name">Ιστοσελίδα Υποψηφίου</h3>
+        <p class="package-desc">Η ψηφιακή βάση: βιογραφικό, θέσεις, φόρμες που τροφοδοτούν το CRM, σελίδες προορισμού για κάθε καμπάνια. Ο μόνος χώρος που ανήκει στον υποψήφιο.</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-top: 4rem; padding: 2rem; border: 1px solid var(--border-dark); border-radius: 6px; background: white;">
+      <p style="font-size: 0.85rem; color: var(--warm-gray); line-height: 1.7;">
+        <strong style="color: var(--teal-950);">Σημείωση:</strong> Τα πακέτα συντίθενται αρθρωτά, αλλά υπακούν σε μία αρχή: ένας υποψήφιος ανά δήμο. Το πλήρες κοστολόγιο ανά μέγεθος δήμου παραδίδεται γραπτά μετά την πρώτη συνάντηση. Ενδεικτικά για πλήρη καμπάνια έξι μηνών: <strong style="color: var(--coral);">16-24 χιλ. ευρώ</strong> σε μικρό δήμο, <strong style="color: var(--coral);">28-44</strong> σε μεσαίο, <strong style="color: var(--coral);">50-85</strong> σε μεγάλο, χωρίς ΦΠΑ και διαφημιστική δαπάνη.
+      </p>
+    </div>
+  </section>
+
+  <!-- Process Timeline -->
+  <section class="process" id="process">
+    <div class="section-heading reveal" style="text-align: center; margin-bottom: 6rem;">
+      <div class="section-eyebrow" style="justify-content: center;">Πώς δουλεύουμε</div>
+      <h2 class="section-title section-title-light">Από τη διάγνωση στην κάλπη, με ημερολόγιο.</h2>
+    </div>
+
+    <div class="process-timeline" id="processTimeline">
+      <div class="process-line-fill" id="processLineFill"></div>
+
+      <div class="process-step" data-step="1">
+        <div class="process-visual">
+          <div class="process-roman">I</div>
+        </div>
+        <div class="process-dot"></div>
+        <div class="process-content">
+          <h3 class="process-title">Διάγνωση</h3>
+          <p class="process-desc">Έρευνα στο πεδίο, αποτύπωση αντιπάλων, χαρτογράφηση ζητημάτων ανά δημοτική ενότητα.</p>
+        </div>
+      </div>
+
+      <div class="process-step" data-step="2">
+        <div class="process-visual">
+          <div class="process-roman">II</div>
+        </div>
+        <div class="process-dot"></div>
+        <div class="process-content">
+          <h3 class="process-title">Στρατηγική</h3>
+          <p class="process-desc">Κεντρικό αφήγημα, τρεις πυλώνες, θέσεις ανά τομέα. Κάθε ισχυρισμός εξηγεί το γιατί, όχι μόνο το τι.</p>
+        </div>
+      </div>
+
+      <div class="process-step" data-step="3">
+        <div class="process-visual">
+          <div class="process-roman">III</div>
+        </div>
+        <div class="process-dot"></div>
+        <div class="process-content">
+          <h3 class="process-title">Ημερολόγιο</h3>
+          <p class="process-desc">Δράσεις και περιεχόμενο ανά εβδομάδα. Κάθε συγκέντρωση μπαίνει με στόχο, λίστα και πλάνο αξιοποίησης.</p>
+        </div>
+      </div>
+
+      <div class="process-step" data-step="4">
+        <div class="process-visual">
+          <div class="process-roman">IV</div>
+        </div>
+        <div class="process-dot"></div>
+        <div class="process-content">
+          <h3 class="process-title">Εκτέλεση</h3>
+          <p class="process-desc">Πεδίο και ψηφιακό, συντονισμένα από τους ίδιους δύο ανθρώπους που έγραψαν το πλάνο.</p>
+        </div>
+      </div>
+
+      <div class="process-step" data-step="5">
+        <div class="process-visual">
+          <div class="process-roman">V</div>
+        </div>
+        <div class="process-dot"></div>
+        <div class="process-content">
+          <h3 class="process-title">Μέτρηση</h3>
+          <p class="process-desc">Δείκτες, μηνιαία αναφορά, αναπροσαρμογή. Η καμπάνια κρίνεται σε αριθμούς, όχι σε εντυπώσεις.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="team" id="team">
+    <div class="section-heading reveal">
+      <div class="section-eyebrow">Οι άνθρωποι</div>
+      <h2 class="section-title">Δύο ισότιμοι συνεταίροι, διακριτές ευθύνες.</h2>
+    </div>
+
+    <div class="team-grid">
+      <div class="team-member reveal reveal-delay-1">
+        <div class="team-header">
+          <div class="team-avatar">Κ</div>
+          <div>
+            <div class="team-info-role">Συνιδρυτής</div>
+            <h3 class="team-info-name">Κωνσταντίνος</h3>
+            <p class="team-info-title">Διευθυντής Στρατηγικής &amp; Ψηφιακής Επικοινωνίας</p>
+          </div>
+        </div>
+        <p class="team-desc">Σχεδιάζει το κεντρικό αφήγημα και τους άξονες. Διευθύνει social media, περιεχόμενο και διαφημίσεις. Γράφει λόγους, άρθρα και θέσεις.</p>
+        <p class="team-quote">«Κάθε ανάρτηση και κάθε ομιλία υπηρετούν το ίδιο αφήγημα.»</p>
+      </div>
+
+      <div class="team-member reveal reveal-delay-2">
+        <div class="team-header">
+          <div class="team-avatar">Σ</div>
+          <div>
+            <div class="team-info-role">Συνιδρυτής</div>
+            <h3 class="team-info-name">Σπύρος</h3>
+            <p class="team-info-title">Διευθυντής Καμπάνιας, Πεδίου &amp; Δημοσίων Σχέσεων</p>
+          </div>
+        </div>
+        <p class="team-desc">Στήνει την ομάδα, τις ροές και την καθημερινή λειτουργία του γραφείου. Διαχειρίζεται συγκεντρώσεις, δείπνα, περιοδείες και το δίκτυο επαφών.</p>
+        <p class="team-quote">«Καμία επαφή δεν χάνεται, καμία υποχρέωση δεν ξεχνιέται.»</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="testimonials" id="testimonials">
+    <div class="section-heading reveal">
+      <div class="section-eyebrow" style="justify-content: center;">Απόψεις</div>
+      <h2 class="section-title section-title-light" style="text-align: center; max-width: none;">Τι λένε οι συνεργάτες μας</h2>
+    </div>
+
+    <div class="testimonials-wrapper" style="overflow: hidden;">
+      <div class="testimonials-carousel" id="testimonialsCarousel">
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"Η ομάδα της Agora κατάφερε να δώσει μορφή σε ένα όραμα που είχαμε χρόνια. Η καμπάνια μας είχε συνέχεια, συνέπεια και απτά αποτελέσματα."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">ΓΡ</div>
+            <div>
+              <div class="testimonial-name">Γιώργος Ρ.</div>
+              <div class="testimonial-role">Υποψήφιος Δήμαρχος, Πελοπόννησος</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"Η έρευνα πεδίου που έκαναν ήταν εντυπωσιακή. Γνώριζαν τον δήμο μας καλύτερα από εμάς. Κάθε απόφαση στηρίχτηκε σε δεδομένα, όχι σε υποθέσεις."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">ΜΚ</div>
+            <div>
+              <div class="testimonial-name">Μαρία Κ.</div>
+              <div class="testimonial-role">Επικεφαλής Συνδυασμού, Θεσσαλία</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"Από την πρώτη μέρα είχαμε σαφή εικόνα του που πηγαίναμε. Η μηνιαία αναφορά ήταν ο οδηγός μας. Το αποτέλεσμα μίλησε από μόνο του."</p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">ΝΑ</div>
+            <div>
+              <div class="testimonial-name">Νίκος Α.</div>
+              <div class="testimonial-role">Δημοτικός Σύμβουλος, Στερεά Ελλάδα</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="testimonials-nav">
+      <button onclick="moveCarousel(-1)" aria-label="Προηγούμενο">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <button onclick="moveCarousel(1)" aria-label="Επόμενο">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="contact" id="contact">
+    <div class="contact-grid">
+      <div class="reveal">
+        <div class="section-heading">
+          <div class="section-eyebrow">Πρώτη συνάντηση</div>
+          <h2 class="section-title">Ας μιλήσουμε για τον δικό σας δήμο.</h2>
+        </div>
+        <p style="color: var(--warm-gray); margin-bottom: 3rem; line-height: 1.7;">Η πρώτη συνάντηση χαρτογράφησης γίνεται χωρίς χρέωση και χωρίς δέσμευση. Μία ώρα πάνω στον χάρτη του δήμου σας, για να δούμε πού βρίσκεστε και τι χρειάζεται η διαδρομή ως την κάλπη.</p>
+
+        <div class="contact-info-item">
+          <div class="contact-info-label">Email</div>
+          <div class="contact-info-value"><a href="mailto:info@agorastrategies.gr">info@agorastrategies.gr</a></div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Έδρα</div>
+          <div class="contact-info-value">Αθήνα</div>
+        </div>
+        <div class="contact-info-item">
+          <div class="contact-info-label">Web</div>
+          <div class="contact-info-value">agorastrategies.gr</div>
+        </div>
+      </div>
+
+      <div class="reveal reveal-delay-2">
+        <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: var(--teal-950); margin-bottom: 2rem;">Πες μας λίγα λόγια.</h3>
+        <div class="form-success" id="formSuccess">
+          <div class="form-success-icon">&#10003;</div>
+          <h4>Το μήνυμα στάλθηκε επιτυχώς!</h4>
+          <p>Σας ευχαριστούμε για την επικοινωνία. Θα απαντήσουμε εντός 24 ωρών σε εργάσιμες ημέρες.</p>
+        </div>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/?submitted=true#contact" onsubmit="handleSubmit(event)" id="contactForm">
+          <div style="display:none;">
+            <input name="bot-field" />
+          </div>
+          <input type="hidden" name="form-name" value="contact" />
+          <div class="form-group">
+            <label class="form-label">Ονοματεπώνυμο</label>
+            <input type="text" name="name" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Τηλέφωνο <span class="optional">προαιρετικό</span></label>
+            <input type="tel" name="phone" class="form-input">
+          </div>
+          <div class="form-group">
+            <label class="form-label">Δήμος ή περιφέρεια</label>
+            <input type="text" name="municipality" class="form-input" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Ιδιότητα</label>
+            <select name="role" class="form-select" required>
+              <option value="">Επιλέξτε</option>
+              <option>Υποψήφιος/α δήμαρχος</option>
+              <option>Επικεφαλής συνδυασμού</option>
+              <option>Δημοτικός σύμβουλος</option>
+              <option>Στέλεχος ομάδας</option>
+              <option>Άλλο</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Τι θα θέλατε να συζητήσουμε;</label>
+            <textarea name="message" class="form-textarea"></textarea>
+          </div>
+          <button type="submit" class="form-submit">
+            Στείλτε το μήνυμα
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
+          <p class="form-note">Απαντάμε εντός 24 ωρών σε εργάσιμες ημέρες. Τα στοιχεία σας δεν προωθούνται σε τρίτους.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo">Agora Strategies</div>
+        <div class="footer-tagline">Από την πλατεία ως το feed.</div>
+      </div>
+      <div class="footer-links">
+        <a href="#packages">Πακέτα</a>
+        <a href="#philosophy">Φιλοσοφία</a>
+        <a href="#team">Ομάδα</a>
+        <a href="#contact">Επικοινωνία</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-copyright">&copy; 2026 Agora Strategies. Πολιτική στρατηγική &amp; επικοινωνία για την τοπική αυτοδιοίκηση.</div>
+      <div class="footer-principle">Έναν υποψήφιο ανά δήμο.</div>
+    </div>
+  </footer>
+
+  <script>
+    // ===== PRELOADER =====
+    window.addEventListener('load', () => {
+      setTimeout(() => {
+        document.getElementById('preloader').classList.add('done');
+        // Animate hero elements after preloader
+        setTimeout(() => {
+          document.getElementById('heroBadge').style.opacity = '1';
+          document.getElementById('heroBadge').style.transform = 'translateY(0)';
+          document.getElementById('heroBadge').style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        }, 300);
+        setTimeout(() => {
+          document.getElementById('heroTitle').style.opacity = '1';
+          document.getElementById('heroTitle').style.transform = 'translateY(0)';
+          document.getElementById('heroTitle').style.transition = 'all 1s cubic-bezier(0.16, 1, 0.3, 1)';
+        }, 500);
+        setTimeout(() => {
+          document.getElementById('heroSubtitle').style.opacity = '1';
+          document.getElementById('heroSubtitle').style.transform = 'translateY(0)';
+          document.getElementById('heroSubtitle').style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+        }, 800);
+        setTimeout(() => {
+          document.getElementById('heroStats').style.opacity = '1';
+          document.getElementById('heroStats').style.transform = 'translateY(0)';
+          document.getElementById('heroStats').style.transition = 'all 0.8s cubic-bezier(0.16, 1, 0.3, 1)';
+          animateCounters();
+        }, 1000);
+        setTimeout(() => {
+          document.getElementById('heroCta').style.opacity = '1';
+          document.getElementById('heroCta').style.transform = 'translateY(0)';
+          document.getElementById('heroCta').style.transition = 'all 0.6s cubic-bezier(0.16, 1, 0.3, 1)';
+        }, 1200);
+      }, 2800);
+    });
+
+    // Set initial hero states
+    document.getElementById('heroTitle').style.opacity = '0';
+    document.getElementById('heroTitle').style.transform = 'translateY(40px)';
+
+    // ===== CUSTOM CURSOR =====
+    const cursor = document.getElementById('cursor');
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+
+    if (!isTouchDevice && cursor) {
+      document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+      });
+      document.querySelectorAll('a, button, .package-card, .principle-card, .testimonial-card').forEach(el => {
+        el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+        el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+      });
+    }
+
+    // ===== NAV SCROLL =====
+    const nav = document.getElementById('nav');
+    let lastScroll = 0;
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.scrollY;
+      if (currentScroll > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    });
+
+    // ===== MOBILE MENU =====
+    function openMenu() {
+      document.getElementById('mobileMenu').classList.add('open');
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+
+    // ===== SCROLL REVEAL =====
+    const revealElements = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    revealElements.forEach(el => revealObserver.observe(el));
+
+    // ===== COUNTER ANIMATION =====
+    function animateCounters() {
+      document.querySelectorAll('.counter').forEach(counter => {
+        const target = parseInt(counter.dataset.target);
+        const duration = 2000;
+        const step = target / (duration / 16);
+        let current = 0;
+        const update = () => {
+          current += step;
+          if (current < target) {
+            counter.textContent = Math.floor(current);
+            requestAnimationFrame(update);
+          } else {
+            counter.textContent = target;
+          }
+        };
+        update();
+      });
+    }
+
+    // ===== HERO PARTICLES =====
+    const particleContainer = document.getElementById('heroParticles');
+    for (let i = 0; i < 30; i++) {
+      const p = document.createElement('div');
+      p.className = 'hero-particle';
+      p.style.left = Math.random() * 100 + '%';
+      p.style.animationDuration = (8 + Math.random() * 12) + 's';
+      p.style.animationDelay = Math.random() * 10 + 's';
+      p.style.width = p.style.height = (1 + Math.random() * 3) + 'px';
+      particleContainer.appendChild(p);
+    }
+
+    // ===== PROCESS TIMELINE =====
+    const timeline = document.getElementById('processTimeline');
+    const lineFill = document.getElementById('processLineFill');
+    const steps = document.querySelectorAll('.process-step');
+
+    function updateTimeline() {
+      if (!timeline) return;
+      const rect = timeline.getBoundingClientRect();
+      const viewportHeight = window.innerHeight;
+      const timelineTop = rect.top;
+      const timelineHeight = rect.height;
+
+      // Calculate progress based on scroll
+      let progress = (viewportHeight - timelineTop) / (viewportHeight + timelineHeight);
+      progress = Math.max(0, Math.min(1, progress));
+
+      // Update line fill
+      if (lineFill) {
+        lineFill.style.height = (progress * 100) + '%';
+      }
+
+      // Activate steps
+      steps.forEach((step, index) => {
+        const stepProgress = (progress * steps.length) - index;
+        if (stepProgress > 0.3) {
+          step.classList.add('active');
+        } else {
+          step.classList.remove('active');
+        }
+      });
+    }
+
+    window.addEventListener('scroll', updateTimeline);
+    updateTimeline();
+
+    // ===== TESTIMONIALS CAROUSEL =====
+    let carouselPos = 0;
+    const carousel = document.getElementById('testimonialsCarousel');
+
+    function moveCarousel(direction) {
+      const cards = carousel.querySelectorAll('.testimonial-card');
+      const cardWidth = cards[0].offsetWidth + 32; // card width + gap
+      const maxPos = -(cards.length - 1) * cardWidth;
+      carouselPos = Math.max(maxPos, Math.min(0, carouselPos - direction * cardWidth));
+      carousel.style.transform = 'translateX(' + carouselPos + 'px)';
+    }
+
+    // ===== FORM SUBMIT =====
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('.form-submit');
+      const originalText = btn.innerHTML;
+      btn.innerHTML = '&#10003; Το μήνυμα εστάλη!';
+      btn.style.background = '#2d7a5f';
+      setTimeout(() => {
+        btn.innerHTML = originalText;
+        btn.style.background = '';
+        e.target.reset();
+      }, 3000);
+    }
+
+    // ===== FORM SUBMITTED STATE =====
+    (function() {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('submitted') === 'true') {
+        const form = document.getElementById('contactForm');
+        const success = document.getElementById('formSuccess');
+        if (form && success) {
+          form.style.display = 'none';
+          success.classList.add('show');
+        }
+        // Clean URL
+        if (window.history.replaceState) {
+          window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
+        }
+      }
+    })();
+
+    // ===== SMOOTH SCROLL =====
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  </script>
 </body>
 </html>
