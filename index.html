@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" crossorigin="anonymous">
-  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=8YoAO73RD5jlnoIvklg7eZ7PVXyW7G9YhbdqZEBtl4SyDI8LwiYvsntQUDHM5eVoY3O_A6v3jaxCSWkQfUC2YdTjUCXWL9vUxcC7lQo4c8wAt2TIsFtnB1PPiOurYpWzWlxUCObATL2APFUXKs55Fa1Z9UpXf-qmkY_qXqSA3nNpeHVxDk42kA_LebkCxBybHQZgUBvYJT8ENei10DbvaaOsxU5kQGduDC6WOMoPqPAsvzzTR-s73fHhTsgEJImvkJRCtqKx8taS8xSF1OcuiehRbupTX-cfQzsPys-vltIUwi8HwAhiho_xA3SgWLqi1kD_gwX_3BybZOC4zimG7FttCU764OworunL88VAHQLVvREOj6RYs84VHdNPsn7IYYfJywk86aHYosI0bkUsMuPinKotFUpQNjVY_Mmh_0wPjxS8OoqPRTO_POjw2YLSQlmjK_DIYDtBYaCwvnpGVSlggn4LPMF2MPdNvOiXCajYHtd56wBshp-MWz9g8UJYqnGsDEI4Poss4qKp00kkXRwK_02IKaBtzS79a-Tl0TqHpgbwSOKexpdvEIKbHkSO_pr4ky3nNNQJW70ziVJLSZKFiloITvQ66hJyGS6adgRS_7mUjvc8q4ptOLSaaJhQTydNF0Sm4s05z0heTIOIUlgb74YkRoOJmONunAjURuI" charset="UTF-8"></script><style>
+  <script type="text/javascript" src="https://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=GBuXdFjlS95v4oB_0jVsR_I2HHPKZERQ8LEuIpxk94ueOEbFHVF3OfLnayn3IAdAIEn-qwvMfNUlOSnKd6slOB4jRjvLD2NI2vtQOIWjl0TgQMzImu4KruthzEUYtv4l_su0gIDCUkNOVD6HdA037qqCIN9sV-AgDeEel85PgDp-aFRHK4IdHtQJaBJKNfud7rq9MTf-rLFGz5AYuXF-G-AIJ0UA4IvePz31BkprOgdLrlx5cJ1nmiz2gX--WTQYzpkHYU83CXvYa_wyHLOTWENGHIjObkf3r1JdBEMj3lr3yBUMFx7LnDr7bKBec7O2aVnrZSdDYzEQXDcOclCNwAwcBmJzscRQt70AM24dsHWykUbUYlftpQSowqZ0YZRVG1gtpua8AOXWJMoJkQicVYdBa7ybzy_bJFkUhUu3aowP6gzHz7sQSe9kk8gEo_rVoQxad8xFoPQXub7gyAK_Bl4XdS3L_eIm-DZHI3jdLlJStMxJHYwaxV1c616OdgLaRRH2tE7q2hpKFX7-ZZ6AH4XhFC7K0hUFRvIBCScaEbR14ywhrIomMj7iDLHV1e7tpALD414h24ooAAG0bkYbpiwiMPVKxb9ncfhSndRAw8h8jol3sEdH7vHmpxlVBV5oX84Y1SCdKQ7Asr42yICdwmk4UH8ox23jmjlv3hLCtas" charset="UTF-8"></script><style>
     /* ===== CSS VARIABLES ===== */
     :root {
       --teal-950: #0a2e33;
@@ -1598,18 +1598,19 @@
       document.getElementById('mobileMenu').classList.remove('open');
     }
 
-    // ===== SCROLL REVEAL =====
+    // ===== SCROLL REVEAL (without IntersectionObserver for old Android) =====
     var revealElements = document.querySelectorAll('.reveal');
-    var revealObserver = new IntersectionObserver(function(entries) {
-      for (var i = 0; i < entries.length; i++) {
-        if (entries[i].isIntersecting) {
-          entries[i].target.classList.add('visible');
+    function checkReveal() {
+      var vh = window.innerHeight;
+      for (var i = 0; i < revealElements.length; i++) {
+        var rect = revealElements[i].getBoundingClientRect();
+        if (rect.top < vh - 50) {
+          revealElements[i].classList.add('visible');
         }
       }
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-    for (var i = 0; i < revealElements.length; i++) {
-      revealObserver.observe(revealElements[i]);
     }
+    window.addEventListener('scroll', checkReveal);
+    checkReveal();
 
     // ===== COUNTER ANIMATION =====
     function animateCounters() {
@@ -1680,10 +1681,10 @@
       carousel.style.transform = 'translateX(' + carouselPos + 'px)';
     }
 
-    // ===== FORM SUBMITTED STATE =====
+    // ===== FORM SUBMITTED STATE (without URLSearchParams) =====
     (function() {
-      var params = new URLSearchParams(window.location.search);
-      if (params.get('thanks') === 'true' || params.get('submitted') === 'true') {
+      var search = window.location.search;
+      if (search.indexOf('thanks=true') !== -1 || search.indexOf('submitted=true') !== -1) {
         var form = document.getElementById('contactForm');
         var success = document.getElementById('formSuccess');
         if (form && success) {
@@ -1696,7 +1697,7 @@
       }
     })();
 
-    // ===== SMOOTH SCROLL =====
+    // ===== SMOOTH SCROLL (without scrollIntoView smooth) =====
     var scrollAnchors = document.querySelectorAll('a[href^="#"]');
     for (var i = 0; i < scrollAnchors.length; i++) {
       scrollAnchors[i].addEventListener('click', function(e) {
@@ -1705,7 +1706,8 @@
         e.preventDefault();
         var target = document.querySelector(href);
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          var offset = target.offsetTop - 80;
+          window.scrollTo(0, offset);
         }
       });
     }
