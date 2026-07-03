@@ -5,133 +5,1018 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AGORA Strategies — Πολιτική στρατηγική &amp; επικοινωνία</title>
   <meta name="description" content="Αναλαμβάνουμε ολόκληρη την καμπάνια ενός αυτοδιοικητικού υποψηφίου. Έναν υποψήφιο ανά δήμο, μία ομάδα από πίσω.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" crossorigin="anonymous">
   <style>
+    /* ===== CSS VARIABLES ===== */
+    :root {
+      --teal-950: #0a2e33;
+      --teal-900: #0d3d42;
+      --teal-800: #114c52;
+      --teal-700: #165b62;
+      --teal-600: #1a6a72;
+      --coral: #d4856a;
+      --coral-light: #e8a890;
+      --cream: #faf6f1;
+      --cream-dark: #f0ebe4;
+      --warm-gray: #6b6560;
+      --text-light: #f5f0eb;
+      --text-muted: rgba(245, 240, 235, 0.6);
+      --border-light: rgba(245, 240, 235, 0.12);
+      --border-dark: rgba(10, 46, 51, 0.12);
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'Inter', -apple-system, sans-serif;
+      --font-mono: 'IBM Plex Mono', monospace;
+      --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+      --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    /* ===== RESET ===== */
     *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; font-size: 16px; }
-    body { font-family: Georgia, 'Times New Roman', serif; background: #faf6f1; color: #0a2e33; line-height: 1.6; overflow-x: hidden; }
+    body {
+      font-family: var(--font-body);
+      background: var(--cream);
+      color: var(--teal-950);
+      overflow-x: hidden;
+      line-height: 1.6;
+    }
     a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
     img { max-width: 100%; display: block; }
+    button { border: none; background: none; cursor: pointer; font-family: inherit; }
+    input, textarea, select { font-family: inherit; }
 
-    .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.25rem 2.5rem; display: flex; align-items: center; justify-content: space-between; transition: background 0.5s; }
-    .nav.scrolled { background: rgba(10, 46, 51, 0.92); backdrop-filter: blur(20px); padding: 0.85rem 2.5rem; }
-    .nav-logo { font-family: Georgia, serif; font-size: 1.15rem; font-weight: 500; color: #f5f0eb; display: flex; align-items: center; gap: 0.6rem; }
-    .nav-logo-icon { width: 28px; height: 28px; border: 1.5px solid #d4856a; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 0.65rem; color: #d4856a; }
-    .nav-links { display: flex; gap: 2.5rem; }
-    .nav-links a { font-family: 'Courier New', monospace; font-size: 0.7rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(245, 240, 235, 0.6); transition: color 0.3s; }
-    .nav-links a:hover { color: #f5f0eb; }
-    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 5px; }
-    .nav-toggle span { width: 24px; height: 1.5px; background: #f5f0eb; }
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.25rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background 0.5s, backdrop-filter 0.5s, padding 0.3s;
+    }
+    .nav.scrolled {
+      background: rgba(10, 46, 51, 0.92);
+      -webkit-backdrop-filter: blur(20px) saturate(1.2);
+      backdrop-filter: blur(20px) saturate(1.2);
+      padding: 0.85rem 2.5rem;
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 500;
+      color: var(--text-light);
+      display: flex; align-items: center; gap: 0.6rem;
+    }
+    .nav-logo-icon {
+      width: 28px; height: 28px;
+      border: 1.5px solid var(--coral);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 0.65rem; color: var(--coral);
+    }
+    .nav-links {
+      display: flex; gap: 2.5rem;
+    }
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -4px; left: 0;
+      width: 0; height: 1px; background: var(--coral);
+      transition: width 0.4s var(--ease-out-expo);
+    }
+    .nav-links a:hover { color: var(--text-light); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-toggle {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 5px;
+    }
+    .nav-toggle span {
+      width: 24px; height: 1.5px;
+      background: var(--text-light);
+      transition: all 0.3s;
+    }
 
-    .hero { position: relative; min-height: 100vh; background: #0a2e33; display: flex; flex-direction: column; justify-content: center; padding: 8rem 4rem 4rem; overflow: hidden; }
-    .hero-badge { display: inline-flex; align-items: center; gap: 0.75rem; border: 1px solid rgba(245, 240, 235, 0.12); border-radius: 100px; padding: 0.5rem 1.25rem; font-family: 'Courier New', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245, 240, 235, 0.6); margin-bottom: 2.5rem; }
-    .hero-badge .dot { width: 5px; height: 5px; background: #d4856a; border-radius: 50%; }
-    .hero-title { font-family: Georgia, serif; font-size: clamp(5rem, 18vw, 16rem); font-weight: 400; line-height: 0.85; color: #f5f0eb; letter-spacing: -0.03em; margin-bottom: 1.5rem; }
-    .hero-title .letter-g { color: #d4856a; }
-    .hero-subtitle { font-family: Georgia, serif; font-style: italic; font-size: clamp(1.4rem, 3.5vw, 2.5rem); font-weight: 400; color: rgba(245, 240, 235, 0.6); margin-bottom: 4rem; line-height: 1.3; }
-    .hero-stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 3rem; max-width: 700px; }
-    .hero-stat { position: relative; padding-top: 1.5rem; border-top: 1px solid rgba(245, 240, 235, 0.12); }
-    .hero-stat-label { font-family: 'Courier New', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(245, 240, 235, 0.6); margin-bottom: 0.5rem; }
-    .hero-stat-value { font-family: Georgia, serif; font-size: 1.4rem; font-weight: 500; color: #f5f0eb; }
-    .hero-cta { margin-top: 3rem; display: inline-flex; align-items: center; gap: 0.75rem; font-family: 'Courier New', monospace; font-size: 0.7rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245, 240, 235, 0.6); border-bottom: 1px solid rgba(245, 240, 235, 0.12); padding-bottom: 0.5rem; transition: color 0.3s; }
-    .hero-cta:hover { color: #d4856a; }
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      background: var(--teal-950);
+      display: flex; flex-direction: column;
+      justify-content: center;
+      padding: 8rem 4rem 4rem;
+      overflow: hidden;
+    }
+    .hero-grid {
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-image:
+        linear-gradient(rgba(212,133,106,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(212,133,106,0.03) 1px, transparent 1px);
+      background-size: 80px 80px;
+      pointer-events: none;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      border: 1px solid var(--border-light);
+      border-radius: 100px;
+      padding: 0.5rem 1.25rem;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 2.5rem;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .hero-badge .dot {
+      width: 5px; height: 5px;
+      background: var(--coral);
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+    .hero-title {
+      font-family: var(--font-display);
+      font-size: clamp(5rem, 18vw, 16rem);
+      font-weight: 400;
+      line-height: 0.85;
+      color: var(--text-light);
+      letter-spacing: -0.03em;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .hero-title .letter-g {
+      color: var(--coral);
+      position: relative;
+      display: inline-block;
+    }
+    .hero-title .letter-g::after {
+      content: ''; position: absolute;
+      bottom: 8%; left: -5%;
+      width: 110%; height: 3px;
+      background: linear-gradient(90deg, var(--coral), transparent);
+      opacity: 0.5;
+    }
+    .hero-subtitle {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.4rem, 3.5vw, 2.5rem);
+      font-weight: 400;
+      color: var(--text-muted);
+      margin-bottom: 4rem;
+      line-height: 1.3;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 3rem;
+      max-width: 700px;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .hero-stat {
+      position: relative;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .hero-stat-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 0.5rem;
+    }
+    .hero-stat-value {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text-light);
+    }
+    .hero-stat:nth-child(4) .hero-stat-value {
+      position: relative;
+      display: inline-block;
+    }
+    .hero-stat:nth-child(4) .hero-stat-value::after {
+      content: '';
+      position: absolute;
+      right: -12px; top: 50%;
+      width: 6px; height: 6px;
+      background: var(--coral);
+      border-radius: 1px;
+      transform: translateY(-50%) rotate(45deg);
+    }
+    .hero-cta {
+      margin-top: 3rem;
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      border-bottom: 1px solid var(--border-light);
+      padding-bottom: 0.5rem;
+      transition: color 0.3s, border-color 0.3s;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .hero-cta:hover {
+      color: var(--coral);
+      border-color: var(--coral);
+    }
+    .hero-cta svg {
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+    .hero-cta:hover svg {
+      transform: translateY(3px);
+    }
 
-    .section { position: relative; padding: 8rem 4rem; }
-    .section-eyebrow { font-family: 'Courier New', monospace; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: #d4856a; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.75rem; }
-    .section-eyebrow::before { content: ''; width: 24px; height: 1px; background: #d4856a; }
-    .section-title { font-family: Georgia, serif; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 500; line-height: 1.15; color: #0a2e33; max-width: 700px; }
-    .section-title-light { color: #f5f0eb; }
+    /* Hero entrance animations */
+    #heroBadge, #heroTitle, #heroSubtitle, #heroStats, #heroCta {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s var(--ease-out-expo), transform 0.8s var(--ease-out-expo);
+    }
 
-    .about { background: #faf6f1; padding-top: 10rem; }
-    .about-statement { font-family: Georgia, serif; font-size: clamp(1.5rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.5; color: #0a2e33; }
-    .about-statement strong { font-weight: 600; position: relative; }
-    .about-statement strong::after { content: ''; position: absolute; bottom: 2px; left: 0; width: 100%; height: 8px; background: rgba(212, 133, 106, 0.2); z-index: -1; }
+    /* ===== ANIMATED ENTRANCE ===== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: opacity 0.9s var(--ease-out-expo), transform 0.9s var(--ease-out-expo);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+    .reveal-delay-5 { transition-delay: 0.5s; }
 
-    .principles { background: #0a2e33; padding: 8rem 4rem; }
-    .principles-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 3rem; }
-    .principle-card { padding: 2.5rem; border: 1px solid rgba(245, 240, 235, 0.12); border-radius: 4px; transition: border-color 0.4s; }
-    .principle-card:hover { border-color: rgba(212, 133, 106, 0.3); }
-    .principle-number { font-family: 'Courier New', monospace; font-size: 0.7rem; color: #d4856a; margin-bottom: 1.5rem; }
-    .principle-title { font-family: Georgia, serif; font-size: 1.3rem; font-weight: 500; color: #f5f0eb; margin-bottom: 1rem; }
-    .principle-desc { font-size: 0.9rem; color: rgba(245, 240, 235, 0.6); line-height: 1.7; }
+    /* ===== SECTION SYSTEM ===== */
+    .section {
+      position: relative;
+      padding: 8rem 4rem;
+    }
+    .section-heading {
+      margin-bottom: 4rem;
+    }
+    .section-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      width: 24px; height: 1px;
+      background: var(--coral);
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 500;
+      line-height: 1.15;
+      color: var(--teal-950);
+      max-width: 700px;
+    }
+    .section-title-light { color: var(--text-light); }
 
-    .packages { background: #faf6f1; padding: 8rem 4rem; }
-    .packages-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .package-card { background: white; border: 1px solid rgba(10, 46, 51, 0.12); border-radius: 6px; padding: 2rem; transition: all 0.3s; }
-    .package-card:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(10, 46, 51, 0.08); }
-    .package-letter { font-family: Georgia, serif; font-size: 2rem; font-weight: 500; color: #d4856a; margin-bottom: 0.5rem; }
-    .package-name { font-family: Georgia, serif; font-size: 1.1rem; font-weight: 500; color: #0a2e33; margin-bottom: 0.75rem; }
-    .package-desc { font-size: 0.82rem; color: #6b6560; line-height: 1.65; }
-    .package-tag { display: inline-block; margin-top: 1rem; font-family: 'Courier New', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; padding: 0.3rem 0.7rem; background: rgba(212, 133, 106, 0.1); color: #d4856a; border-radius: 100px; }
+    /* ===== ABOUT ===== */
+    .about {
+      background: var(--cream);
+      padding-top: 10rem;
+    }
+    .about-content {
+      max-width: 900px;
+    }
+    .about-statement {
+      font-family: var(--font-display);
+      font-size: clamp(1.5rem, 3vw, 2.4rem);
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--teal-950);
+    }
+    .about-statement strong {
+      font-weight: 600;
+      position: relative;
+    }
+    .about-statement strong::after {
+      content: '';
+      position: absolute;
+      bottom: 2px; left: 0;
+      width: 100%; height: 8px;
+      background: rgba(212, 133, 106, 0.2);
+      z-index: -1;
+    }
 
-    .process { background: #0a2e33; padding: 8rem 4rem; }
-    .process-timeline { position: relative; max-width: 900px; margin: 0 auto; }
-    .process-timeline::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 1px; background: rgba(245, 240, 235, 0.12); transform: translateX(-50%); }
-    .process-step { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-bottom: 5rem; position: relative; align-items: center; }
+    /* ===== PRINCIPLES ===== */
+    .principles {
+      background: var(--teal-950);
+      padding: 8rem 4rem;
+    }
+    .principles-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 3rem;
+    }
+    .principle-card {
+      padding: 2.5rem;
+      border: 1px solid var(--border-light);
+      border-radius: 4px;
+      transition: border-color 0.4s, background 0.4s, transform 0.5s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+    .principle-card::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, var(--coral), transparent);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+    .principle-card:hover::before {
+      transform: scaleX(1);
+    }
+    .principle-card:hover {
+      border-color: rgba(212, 133, 106, 0.3);
+      background: rgba(212, 133, 106, 0.03);
+      transform: translateY(-4px);
+    }
+    .principle-number {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      color: var(--coral);
+      margin-bottom: 1.5rem;
+      letter-spacing: 0.1em;
+    }
+    .principle-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+    .principle-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* ===== PACKAGES ===== */
+    .packages {
+      background: var(--cream);
+      padding: 8rem 4rem;
+    }
+    .packages-intro {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 5rem;
+      align-items: center;
+    }
+    .packages-intro-text {
+      font-size: 1.1rem;
+      color: var(--warm-gray);
+      line-height: 1.8;
+    }
+    .packages-highlight {
+      font-family: var(--font-display);
+      font-size: 4rem;
+      font-weight: 500;
+      color: var(--teal-950);
+      text-align: right;
+      position: relative;
+    }
+    .packages-highlight span {
+      font-size: 1rem;
+      font-family: var(--font-body);
+      color: var(--warm-gray);
+      display: block;
+      margin-top: 0.5rem;
+    }
+    .packages-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .package-card {
+      background: white;
+      border: 1px solid var(--border-dark);
+      border-radius: 6px;
+      padding: 2rem;
+      transition: all 0.5s var(--ease-out-expo);
+      position: relative;
+      overflow: hidden;
+    }
+    .package-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--coral), var(--coral-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s var(--ease-out-expo);
+    }
+    .package-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(10, 46, 51, 0.1);
+      border-color: rgba(212, 133, 106, 0.2);
+    }
+    .package-card:hover::after {
+      transform: scaleX(1);
+    }
+    .package-letter {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 500;
+      color: var(--coral);
+      margin-bottom: 0.5rem;
+      line-height: 1;
+    }
+    .package-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--teal-950);
+      margin-bottom: 0.75rem;
+    }
+    .package-desc {
+      font-size: 0.82rem;
+      color: var(--warm-gray);
+      line-height: 1.65;
+    }
+    .package-tag {
+      display: inline-block;
+      margin-top: 1rem;
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.7rem;
+      background: rgba(212, 133, 106, 0.1);
+      color: var(--coral);
+      border-radius: 100px;
+    }
+    .package-card.featured {
+      border-color: rgba(212, 133, 106, 0.3);
+      background: linear-gradient(135deg, white, rgba(212,133,106,0.04));
+    }
+    .package-card.featured .package-letter {
+      color: var(--teal-950);
+      background: var(--coral);
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      border-radius: 50%;
+      font-size: 1.3rem;
+      color: white;
+    }
+
+    /* ===== PROCESS TIMELINE ===== */
+    .process {
+      background: var(--teal-950);
+      padding: 8rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .process-timeline {
+      position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .process-timeline::before {
+      content: '';
+      position: absolute;
+      left: 50%; top: 0; bottom: 0;
+      width: 1px;
+      background: var(--border-light);
+      transform: translateX(-50%);
+    }
+    .process-line-fill {
+      position: absolute;
+      left: 50%; top: 0;
+      width: 1px;
+      background: linear-gradient(to bottom, var(--coral), var(--coral-light));
+      transform: translateX(-50%);
+      height: 0;
+      transition: height 0.1s linear;
+    }
+    .process-step {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      margin-bottom: 5rem;
+      position: relative;
+      align-items: center;
+    }
+    .process-step:last-child { margin-bottom: 0; }
     .process-step:nth-child(even) .process-content { grid-column: 2; }
     .process-step:nth-child(even) .process-visual { grid-column: 1; grid-row: 1; text-align: right; }
-    .process-roman { font-family: Georgia, serif; font-size: clamp(4rem, 10vw, 7rem); font-weight: 400; color: rgba(245, 240, 235, 0.05); line-height: 1; }
-    .process-title { font-family: Georgia, serif; font-size: 1.5rem; font-weight: 500; color: #f5f0eb; margin-bottom: 0.75rem; }
-    .process-desc { font-size: 0.9rem; color: rgba(245, 240, 235, 0.6); line-height: 1.7; }
+    .process-visual {
+      position: relative;
+    }
+    .process-roman {
+      font-family: var(--font-display);
+      font-size: clamp(4rem, 10vw, 7rem);
+      font-weight: 400;
+      color: rgba(245, 240, 235, 0.05);
+      line-height: 1;
+      transition: color 0.5s;
+    }
+    .process-step.active .process-roman {
+      color: rgba(212, 133, 106, 0.15);
+    }
+    .process-dot {
+      position: absolute;
+      left: 50%; top: 50%;
+      width: 12px; height: 12px;
+      background: var(--teal-950);
+      border: 2px solid var(--coral);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 2;
+      transition: background 0.3s, box-shadow 0.3s;
+    }
+    .process-step.active .process-dot {
+      background: var(--coral);
+      box-shadow: 0 0 20px rgba(212, 133, 106, 0.4);
+    }
+    .process-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+    .process-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
 
-    .team { background: #f0ebe4; padding: 8rem 4rem; }
-    .team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 4rem; max-width: 1000px; }
-    .team-member { background: white; border: 1px solid rgba(10, 46, 51, 0.12); border-radius: 8px; padding: 3rem; transition: all 0.3s; }
-    .team-member:hover { transform: translateY(-4px); box-shadow: 0 10px 30px rgba(10, 46, 51, 0.08); }
-    .team-header { display: flex; align-items: center; gap: 1.5rem; margin-bottom: 2rem; }
-    .team-avatar { width: 72px; height: 72px; border-radius: 50%; background: linear-gradient(135deg, #114c52, #0a2e33); display: flex; align-items: center; justify-content: center; font-family: Georgia, serif; font-size: 1.4rem; font-weight: 500; color: #f5f0eb; flex-shrink: 0; }
-    .team-info-role { font-family: 'Courier New', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #d4856a; margin-bottom: 0.4rem; }
-    .team-info-name { font-family: Georgia, serif; font-size: 1.5rem; font-weight: 500; color: #0a2e33; margin-bottom: 0.15rem; }
-    .team-info-title { font-size: 0.8rem; color: #6b6560; }
-    .team-desc { font-size: 0.85rem; color: #6b6560; line-height: 1.7; margin-bottom: 1.5rem; }
-    .team-quote { font-family: Georgia, serif; font-style: italic; font-size: 1.05rem; color: #165b62; line-height: 1.6; padding-left: 1.5rem; border-left: 2px solid #d4856a; }
+    /* ===== TEAM ===== */
+    .team {
+      background: var(--cream-dark);
+      padding: 8rem 4rem;
+    }
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 4rem;
+      max-width: 1000px;
+    }
+    .team-member {
+      position: relative;
+      background: white;
+      border: 1px solid var(--border-dark);
+      border-radius: 8px;
+      padding: 3rem;
+      transition: all 0.5s var(--ease-out-expo);
+      overflow: hidden;
+    }
+    .team-member::before {
+      content: '';
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 3px;
+      background: linear-gradient(90deg, var(--coral), var(--coral-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+    .team-member:hover::before {
+      transform: scaleX(1);
+    }
+    .team-member:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 50px rgba(10, 46, 51, 0.08);
+      border-color: rgba(212, 133, 106, 0.2);
+    }
+    .team-header {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .team-avatar {
+      width: 72px; height: 72px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--teal-800), var(--teal-950));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--text-light);
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .team-avatar::after {
+      content: '';
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, rgba(212,133,106,0.2), transparent);
+    }
+    .team-info-role {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 0.4rem;
+    }
+    .team-info-name {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--teal-950);
+      margin-bottom: 0.15rem;
+    }
+    .team-info-title {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+    }
+    .team-desc {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+    .team-quote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--teal-700);
+      line-height: 1.6;
+      padding-left: 1.5rem;
+      border-left: 2px solid var(--coral);
+    }
 
-    .testimonials { background: #0a2e33; padding: 8rem 4rem; }
-    .testimonials-carousel { display: flex; gap: 2rem; }
-    .testimonial-card { min-width: 500px; max-width: 500px; padding: 2.5rem; border: 1px solid rgba(245, 240, 235, 0.12); border-radius: 6px; }
-    .testimonial-text { font-family: Georgia, serif; font-style: italic; font-size: 1.15rem; color: #f5f0eb; line-height: 1.7; margin-bottom: 2rem; }
-    .testimonial-author { display: flex; align-items: center; gap: 1rem; }
-    .testimonial-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, #d4856a, #e8a890); display: flex; align-items: center; justify-content: center; font-family: Georgia, serif; font-size: 1rem; color: white; font-weight: 500; }
-    .testimonial-name { font-weight: 600; color: #f5f0eb; font-size: 0.9rem; }
-    .testimonial-role { font-size: 0.75rem; color: rgba(245, 240, 235, 0.6); }
-    .testimonials-nav { display: flex; justify-content: center; gap: 1rem; margin-top: 3rem; }
-    .testimonials-nav button { width: 48px; height: 48px; border: 1px solid rgba(245, 240, 235, 0.12); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: rgba(245, 240, 235, 0.6); transition: all 0.3s; }
-    .testimonials-nav button:hover { border-color: #d4856a; color: #d4856a; }
+    /* ===== TESTIMONIALS ===== */
+    .testimonials {
+      background: var(--teal-950);
+      padding: 8rem 4rem;
+      overflow: hidden;
+    }
+    .testimonials-carousel {
+      display: flex;
+      gap: 2rem;
+      transition: transform 0.6s var(--ease-out-expo);
+    }
+    .testimonial-card {
+      min-width: 500px;
+      max-width: 500px;
+      padding: 2.5rem;
+      border: 1px solid var(--border-light);
+      border-radius: 6px;
+      transition: border-color 0.3s;
+    }
+    .testimonial-card:hover {
+      border-color: rgba(212, 133, 106, 0.3);
+    }
+    .testimonial-stars {
+      display: flex; gap: 0.25rem;
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-stars svg {
+      width: 16px; height: 16px;
+      fill: var(--coral);
+    }
+    .testimonial-text {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--text-light);
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+    .testimonial-author {
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .testimonial-avatar {
+      width: 44px; height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--coral), var(--coral-light));
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1rem;
+      color: white;
+      font-weight: 500;
+    }
+    .testimonial-name {
+      font-weight: 600;
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+    .testimonial-role {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .testimonials-nav {
+      display: flex; justify-content: center; gap: 1rem;
+      margin-top: 3rem;
+    }
+    .testimonials-nav button {
+      width: 48px; height: 48px;
+      border: 1px solid var(--border-light);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text-muted);
+      transition: all 0.3s;
+    }
+    .testimonials-nav button:hover {
+      border-color: var(--coral);
+      color: var(--coral);
+      background: rgba(212, 133, 106, 0.1);
+    }
 
-    .contact { background: #faf6f1; padding: 8rem 4rem; }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 6rem; max-width: 1100px; }
-    .contact-info-label { font-family: 'Courier New', monospace; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: #d4856a; margin-bottom: 0.5rem; }
-    .contact-info-value { font-size: 1rem; color: #0a2e33; }
-    .form-group { margin-bottom: 1.5rem; }
-    .form-label { display: block; font-family: 'Courier New', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: #6b6560; margin-bottom: 0.5rem; }
-    .form-input, .form-textarea, .form-select { width: 100%; padding: 0.9rem 1rem; border: 1px solid rgba(10, 46, 51, 0.12); border-radius: 4px; background: white; font-size: 0.9rem; color: #0a2e33; }
-    .form-textarea { resize: vertical; min-height: 120px; }
-    .form-submit { display: inline-flex; align-items: center; gap: 0.75rem; padding: 1rem 2.5rem; background: #0a2e33; color: #f5f0eb; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; border-radius: 4px; cursor: pointer; border: none; }
-    .form-submit:hover { background: #d4856a; }
-    .form-note { margin-top: 1.5rem; font-size: 0.75rem; color: #6b6560; }
+    /* ===== CONTACT ===== */
+    .contact {
+      background: var(--cream);
+      padding: 8rem 4rem;
+      position: relative;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 6rem;
+      max-width: 1100px;
+    }
+    .contact-info-item {
+      margin-bottom: 2rem;
+    }
+    .contact-info-label {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 0.5rem;
+    }
+    .contact-info-value {
+      font-size: 1rem;
+      color: var(--teal-950);
+    }
+    .contact-info-value a {
+      position: relative;
+      transition: color 0.3s;
+    }
+    .contact-info-value a::after {
+      content: '';
+      position: absolute; bottom: -2px; left: 0;
+      width: 0; height: 1px;
+      background: var(--coral);
+      transition: width 0.4s var(--ease-out-expo);
+    }
+    .contact-info-value a:hover {
+      color: var(--coral);
+    }
+    .contact-info-value a:hover::after {
+      width: 100%;
+    }
 
-    .footer { background: #0a2e33; padding: 4rem; border-top: 1px solid rgba(245, 240, 235, 0.12); }
-    .footer-grid { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 3rem; }
-    .footer-logo { font-family: Georgia, serif; font-size: 1.3rem; color: #f5f0eb; margin-bottom: 0.75rem; }
-    .footer-tagline { font-family: Georgia, serif; font-style: italic; font-size: 1rem; color: rgba(245, 240, 235, 0.6); }
-    .footer-links { display: flex; gap: 3rem; }
-    .footer-links a { font-family: 'Courier New', monospace; font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(245, 240, 235, 0.6); }
-    .footer-links a:hover { color: #d4856a; }
-    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; border-top: 1px solid rgba(245, 240, 235, 0.12); }
-    .footer-copyright { font-size: 0.75rem; color: rgba(245, 240, 235, 0.6); }
-    .footer-principle { font-family: 'Courier New', monospace; font-size: 0.6rem; letter-spacing: 0.15em; text-transform: uppercase; color: #d4856a; }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    .form-label {
+      display: block;
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      margin-bottom: 0.5rem;
+    }
+    .form-label .optional {
+      color: var(--coral);
+      font-size: 0.6rem;
+    }
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      border: 1px solid var(--border-dark);
+      border-radius: 4px;
+      background: white;
+      font-size: 0.9rem;
+      color: var(--teal-950);
+      transition: border-color 0.3s, box-shadow 0.3s;
+    }
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      outline: none;
+      border-color: var(--coral);
+      box-shadow: 0 0 0 3px rgba(212, 133, 106, 0.1);
+    }
+    .form-textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    .form-select {
+      cursor: pointer;
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%236b6560' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+    }
+    .form-submit {
+      display: inline-flex; align-items: center; gap: 0.75rem;
+      padding: 1rem 2.5rem;
+      background: var(--teal-950);
+      color: var(--text-light);
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      border-radius: 4px;
+      transition: all 0.4s var(--ease-out-expo);
+    }
+    .form-submit:hover {
+      background: var(--coral);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(212, 133, 106, 0.3);
+    }
+    .form-submit svg {
+      transition: transform 0.3s var(--ease-out-expo);
+    }
+    .form-submit:hover svg {
+      transform: translateX(4px);
+    }
+    .form-note {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: var(--warm-gray);
+    }
+    .form-success {
+      display: none;
+      padding: 3rem 2rem;
+      background: white;
+      border: 1px solid var(--border-dark);
+      border-radius: 6px;
+      text-align: center;
+      border-top: 3px solid #2d7a5f;
+    }
+    .form-success.show {
+      display: block;
+    }
+    .form-success-icon {
+      width: 56px; height: 56px;
+      background: #2d7a5f;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 1.5rem;
+    }
+    .form-success h4 {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--teal-950);
+      margin-bottom: 0.75rem;
+    }
+    .form-success p {
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      line-height: 1.6;
+    }
 
-    .marquee { background: #f0ebe4; padding: 1.5rem 0; overflow: hidden; white-space: nowrap; }
-    .marquee-track { display: inline-flex; }
-    .marquee-item { font-family: 'Courier New', monospace; font-size: 0.7rem; letter-spacing: 0.2em; text-transform: uppercase; color: #6b6560; padding: 0 3rem; }
+    /* ===== FOOTER ===== */
+    .footer {
+      background: var(--teal-950);
+      padding: 4rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-grid {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+    }
+    .footer-brand {
+      max-width: 300px;
+    }
+    .footer-logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      color: var(--text-light);
+      margin-bottom: 0.75rem;
+    }
+    .footer-tagline {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    .footer-links {
+      display: flex; gap: 3rem;
+    }
+    .footer-links a {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      transition: color 0.3s;
+    }
+    .footer-links a:hover { color: var(--coral); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .footer-copyright {
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+    .footer-principle {
+      font-family: var(--font-mono);
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--coral);
+    }
 
-    .mobile-menu { position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999; background: #0a2e33; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; opacity: 0; visibility: hidden; transition: opacity 0.4s, visibility 0.4s; }
-    .mobile-menu.open { opacity: 1; visibility: visible; }
-    .mobile-menu a { font-family: Georgia, serif; font-size: 2rem; color: #f5f0eb; }
-    .mobile-menu-close { position: absolute; top: 1.5rem; right: 1.5rem; color: #f5f0eb; font-size: 1.5rem; background: none; border: none; cursor: pointer; }
+    /* ===== MARQUEE ===== */
+    .marquee {
+      background: var(--cream-dark);
+      padding: 1.5rem 0;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+    .marquee-track {
+      display: inline-flex;
+      animation: marqueeScroll 30s linear infinite;
+    }
+    .marquee-item {
+      font-family: var(--font-mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+      padding: 0 3rem;
+      display: flex; align-items: center; gap: 1rem;
+    }
+    .marquee-item::after {
+      content: '';
+      width: 4px; height: 4px;
+      background: var(--coral);
+      border-radius: 50%;
+    }
+    @keyframes marqueeScroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
 
-    .form-success { display: none; padding: 3rem 2rem; background: white; border: 1px solid rgba(10, 46, 51, 0.12); border-radius: 6px; text-align: center; border-top: 3px solid #2d7a5f; }
-    .form-success.show { display: block; }
+    /* ===== COUNTER ANIMATION ===== */
+    .counter {
+      font-variant-numeric: tabular-nums;
+    }
 
+    /* ===== MOBILE MENU ===== */
+    .mobile-menu {
+      position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 999;
+      background: var(--teal-950);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 2rem;
+      opacity: 0; visibility: hidden;
+      transition: opacity 0.4s, visibility 0.4s;
+    }
+    .mobile-menu.open {
+      opacity: 1; visibility: visible;
+    }
+    .mobile-menu a {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      color: var(--text-light);
+      transition: color 0.3s;
+    }
+    .mobile-menu a:hover { color: var(--coral); }
+    .mobile-menu-close {
+      position: absolute; top: 1.5rem; right: 1.5rem;
+      color: var(--text-light);
+      font-size: 1.5rem;
+    }
+
+    /* ===== RESPONSIVE ===== */
     @media (max-width: 1024px) {
       .packages-grid { grid-template-columns: repeat(2, 1fr); }
       .principles-grid { grid-template-columns: 1fr; }
@@ -146,15 +1031,38 @@
       .hero-stats { grid-template-columns: repeat(2, 1fr); }
       .hero-title { font-size: clamp(3.5rem, 15vw, 7rem); }
       .packages-grid { grid-template-columns: 1fr; }
+      .packages-intro { grid-template-columns: 1fr; }
+      .packages-highlight { text-align: left; }
       .team-grid { grid-template-columns: 1fr; }
+      .process-timeline::before { left: 1rem; }
+      .process-line-fill { left: 1rem; }
       .process-step { grid-template-columns: 1fr; gap: 1rem; }
+      .process-step:nth-child(even) .process-content { grid-column: 1; }
+      .process-step:nth-child(even) .process-visual { grid-column: 1; grid-row: auto; text-align: left; }
+      .process-dot { left: 1rem; }
+      .process-roman { font-size: 4rem; }
       .testimonial-card { min-width: 85vw; max-width: 85vw; }
       .footer-grid { flex-direction: column; gap: 2rem; }
+      .footer-links { flex-wrap: wrap; gap: 1.5rem; }
+      .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+
+    /* ===== SCROLLBAR ===== */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: var(--cream); }
+    ::-webkit-scrollbar-thumb { background: var(--teal-800); border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: var(--teal-700); }
+
+    /* ===== SELECTION ===== */
+    ::selection {
+      background: rgba(212, 133, 106, 0.3);
+      color: var(--teal-950);
     }
   </style>
 </head>
 <body>
 
+  <!-- Mobile Menu -->
   <div class="mobile-menu" id="mobileMenu">
     <a href="#packages" onclick="closeMenu()">Πακέτα</a>
     <a href="#philosophy" onclick="closeMenu()">Φιλοσοφία</a>
@@ -164,6 +1072,7 @@
     <button class="mobile-menu-close" onclick="closeMenu()">&#10005;</button>
   </div>
 
+  <!-- Navigation -->
   <nav class="nav" id="nav">
     <a href="#" class="nav-logo">
       <span class="nav-logo-icon">A</span>
@@ -182,13 +1091,21 @@
     </div>
   </nav>
 
+  <!-- Hero -->
   <section class="hero" id="hero">
+    <div class="hero-grid"></div>
+
     <div class="hero-badge" id="heroBadge">
       <span class="dot"></span>
       Πολιτική στρατηγική &amp; επικοινωνία &nbsp;&middot;&nbsp; Τοπική αυτοδιοίκηση
     </div>
-    <h1 class="hero-title" id="heroTitle">A<span class="letter-g">G</span>ORA</h1>
+
+    <h1 class="hero-title" id="heroTitle">
+      <span class="letter">A</span><span class="letter letter-g">G</span><span class="letter">O</span><span class="letter">R</span><span class="letter">A</span>
+    </h1>
+
     <p class="hero-subtitle" id="heroSubtitle">Από την πλατεία ως το feed.</p>
+
     <div class="hero-stats" id="heroStats">
       <div class="hero-stat">
         <div class="hero-stat-label">Έτος ίδρυσης</div>
@@ -204,16 +1121,29 @@
       </div>
       <div class="hero-stat">
         <div class="hero-stat-label">Πακέτα</div>
-        <div class="hero-stat-value">11</div>
+        <div class="hero-stat-value counter" data-target="11">0</div>
       </div>
     </div>
-    <a href="#packages" class="hero-cta" id="heroCta">
-      Έντεκα περιοχές ευθύνης &darr;
+
+    <a href="#philosophy" class="hero-cta" id="heroCta">
+      Έντεκα περιοχές ευθύνης
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <path d="M12 5v14M5 12l7 7 7-7"/>
+      </svg>
     </a>
   </section>
 
+  <!-- Marquee -->
   <div class="marquee">
     <div class="marquee-track">
+      <span class="marquee-item">Πολιτική Στρατηγική</span>
+      <span class="marquee-item">Επικοινωνία</span>
+      <span class="marquee-item">Τοπική Αυτοδιοίκηση</span>
+      <span class="marquee-item">Social Media</span>
+      <span class="marquee-item">Έρευνα</span>
+      <span class="marquee-item">Οργάνωση</span>
+      <span class="marquee-item">Παραγωγή Βίντεο</span>
+      <span class="marquee-item">Δημόσιες Σχέσεις</span>
       <span class="marquee-item">Πολιτική Στρατηγική</span>
       <span class="marquee-item">Επικοινωνία</span>
       <span class="marquee-item">Τοπική Αυτοδιοίκηση</span>
@@ -225,165 +1155,197 @@
     </div>
   </div>
 
+  <!-- About -->
   <section class="section about" id="philosophy">
-    <div>
-      <div class="section-eyebrow">Η εταιρεία σε μία φράση</div>
+    <div class="about-content reveal">
+      <div class="section-heading">
+        <div class="section-eyebrow">Η εταιρεία σε μία φράση</div>
+      </div>
       <p class="about-statement">
         Αναλαμβάνουμε <strong>ολόκληρη την καμπάνια</strong> ενός αυτοδιοικητικού υποψηφίου, από την έρευνα και το μήνυμα ως το γραφείο και τις συγκεντρώσεις, με ένα <strong>ενιαίο πλάνο</strong> και μετρήσιμη πορεία. Έναν υποψήφιο ανά δήμο, μία ομάδα από πίσω.
       </p>
     </div>
   </section>
 
+  <!-- Principles -->
   <section class="principles" id="principles">
-    <div style="margin-bottom: 4rem;">
-      <div class="section-eyebrow">Οι τρεις αρχές</div>
+    <div class="section-heading reveal">
+      <div class="section-eyebrow" style="color: var(--coral-light);">Οι τρεις αρχές</div>
       <h2 class="section-title section-title-light">Πάνω στις οποίες χτίζουμε</h2>
     </div>
     <div class="principles-grid">
-      <div class="principle-card">
+      <div class="principle-card reveal reveal-delay-1">
         <div class="principle-number">01</div>
         <h3 class="principle-title">Πρώτα τα δεδομένα</h3>
-        <p class="principle-desc">Η στρατηγική βγαίνει από έρευνα μέσα στον δήμο, με στόχους μετρήσιμους σε σταυρούς και ποσοστά.</p>
+        <p class="principle-desc">Η στρατηγική βγαίνει από έρευνα μέσα στον δήμο, με στόχους μετρήσιμους σε σταυρούς και ποσοστά. Οι εντυπώσεις δεν αρκούν για να κριθεί μια κάλπη.</p>
       </div>
-      <div class="principle-card">
+      <div class="principle-card reveal reveal-delay-2">
         <div class="principle-number">02</div>
         <h3 class="principle-title">Ένα πλάνο, δύο πεδία</h3>
-        <p class="principle-desc">Η πλατεία και το feed δουλεύουν μαζί. Η συγκέντρωση τροφοδοτεί το περιεχόμενο.</p>
+        <p class="principle-desc">Η πλατεία και το feed δουλεύουν μαζί. Η συγκέντρωση τροφοδοτεί το περιεχόμενο και το περιεχόμενο γεμίζει την επόμενη αίθουσα.</p>
       </div>
-      <div class="principle-card">
+      <div class="principle-card reveal reveal-delay-3">
         <div class="principle-number">03</div>
         <h3 class="principle-title">Λογοδοσία κάθε μήνα</h3>
-        <p class="principle-desc">Αναφορά με ό,τι έγινε, τι απέδωσε και τι αλλάζει. Ο υποψήφιος ξέρει πάντα πού βρίσκεται.</p>
+        <p class="principle-desc">Αναφορά με ό,τι έγινε, τι απέδωσε και τι αλλάζει. Ο υποψήφιος ξέρει πάντα πού βρίσκεται και τι ακολουθεί.</p>
       </div>
     </div>
   </section>
 
+  <!-- Packages -->
   <section class="packages" id="packages">
-    <div style="margin-bottom: 4rem;">
+    <div class="section-heading reveal">
       <div class="section-eyebrow">Τι αναλαμβάνουμε</div>
       <h2 class="section-title">Έντεκα πακέτα, μία καμπάνια.</h2>
     </div>
+
+    <div class="packages-intro reveal reveal-delay-1">
+      <p class="packages-intro-text">Το Πακέτο Α προηγείται πάντα, γιατί όλα τα υπόλοιπα καταναλώνουν ό,τι παράγει: την έρευνα, το μήνυμα και το ημερολόγιο δράσεων. Τα Β ως ΙΑ ενεργοποιούνται αρθρωτά, ανάλογα με το μέγεθος του δήμου και την ένταση της μάχης.</p>
+      <div class="packages-highlight">11<span>περιοχές ευθύνης</span></div>
+    </div>
+
     <div class="packages-grid">
-      <div class="package-card">
+      <div class="package-card featured reveal reveal-delay-1">
         <div class="package-letter">Α</div>
         <h3 class="package-name">Στρατηγική &amp; Έρευνα</h3>
-        <p class="package-desc">Το θεμέλιο. Διάγνωση, αρχιτεκτονική μηνύματος, ημερολόγιο δράσεων.</p>
+        <p class="package-desc">Το θεμέλιο. Διάγνωση, αρχιτεκτονική μηνύματος, ημερολόγιο δράσεων τεσσάρων ως έξι μηνών. Προαπαιτούμενο για όλα τα υπόλοιπα.</p>
         <span class="package-tag">Πρώτο στάδιο</span>
       </div>
-      <div class="package-card">
+      <div class="package-card reveal reveal-delay-2">
         <div class="package-letter">Β</div>
         <h3 class="package-name">Οργάνωση Γραφείου</h3>
-        <p class="package-desc">CRM επαφών, σύστημα παρακολούθησης δράσεων, διαχείριση εκδηλώσεων.</p>
+        <p class="package-desc">CRM επαφών, σύστημα παρακολούθησης δράσεων, διαχείριση εκδηλώσεων. Ο σταυρός χτίζεται σε μήνες επαφών και χωρίς σύστημα χάνονται στον δρόμο.</p>
       </div>
-      <div class="package-card">
+      <div class="package-card reveal reveal-delay-3">
         <div class="package-letter">Γ</div>
         <h3 class="package-name">Social Media &amp; Περιεχόμενο</h3>
-        <p class="package-desc">Μηνιαία παραγωγή 12 ως 20 αναρτήσεων, stories και reels από το πεδίο.</p>
+        <p class="package-desc">Μηνιαία παραγωγή 12 ως 20 αναρτήσεων, stories και reels από το πεδίο, διαχείριση και διαφημίσεις με γεωγραφική στόχευση.</p>
       </div>
-      <div class="package-card">
+      <div class="package-card reveal reveal-delay-1">
         <div class="package-letter">Δ</div>
         <h3 class="package-name">Παραγωγή Βίντεο</h3>
-        <p class="package-desc">Κεντρικό σποτ, θέσεις σε 60 δευτερόλεπτα, κάλυψη συγκεντρώσεων.</p>
+        <p class="package-desc">Κεντρικό σποτ, θέσεις σε 60 δευτερόλεπτα, κάλυψη συγκεντρώσεων με aftermovie, μαρτυρίες δημοτών. Γύρισμα στο πεδίο, όχι σε στούντιο.</p>
       </div>
-      <div class="package-card">
+      <div class="package-card reveal reveal-delay-2">
         <div class="package-letter">Ε</div>
         <h3 class="package-name">Φυλλάδια &amp; Έντυπα</h3>
-        <p class="package-desc">Κεντρικό φυλλάδιο, θεματικά μονόφυλλα ανά γειτονιά, αφίσα, κάρτα υποψηφίου.</p>
+        <p class="package-desc">Κεντρικό φυλλάδιο, θεματικά μονόφυλλα ανά γειτονιά, αφίσα, κάρτα υποψηφίου, αρχεία έτοιμα για το τυπογραφείο.</p>
       </div>
-      <div class="package-card">
+      <div class="package-card reveal reveal-delay-3">
         <div class="package-letter">ΣΤ</div>
         <h3 class="package-name">Ταυτότητα &amp; Κάρτες</h3>
-        <p class="package-desc">Λογότυπο συνδυασμού, χρωματική παλέτα, επαγγελματικές κάρτες.</p>
+        <p class="package-desc">Λογότυπο συνδυασμού, χρωματική παλέτα, επαγγελματικές κάρτες, templates social, σύντομος οδηγός χρήσης.</p>
       </div>
-      <div class="package-card">
+      <div class="package-card reveal reveal-delay-1">
         <div class="package-letter">Ζ</div>
         <h3 class="package-name">Λόγοι &amp; Αρθρογραφία</h3>
-        <p class="package-desc">Ομιλίες, άρθρα σε τοπικά μέσα, θέσεις ανά τομέα, απαντητικά κείμενα.</p>
+        <p class="package-desc">Ομιλίες, άρθρα σε τοπικά μέσα, θέσεις ανά τομέα, απαντητικά κείμενα. Μία φωνή παντού, από το βήμα ως την οθόνη.</p>
       </div>
-      <div class="package-card">
+      <div class="package-card reveal reveal-delay-2">
         <div class="package-letter">Η</div>
         <h3 class="package-name">Προσωπική Εικόνα</h3>
-        <p class="package-desc">Διάγνωση εικόνας, ενδυματολογικός κώδικας, ντουλάπα καμπάνιας.</p>
+        <p class="package-desc">Διάγνωση εικόνας, ενδυματολογικός κώδικας τριών περιστάσεων, ντουλάπα καμπάνιας. Στόχος δεν είναι ένας άλλος άνθρωπος, αλλά ο ίδιος στην πιο φροντισμένη εκδοχή του.</p>
       </div>
-      <div class="package-card">
+      <div class="package-card reveal reveal-delay-3">
         <div class="package-letter">Θ</div>
         <h3 class="package-name">Φωτογράφιση &amp; Οπτικός Οδηγός</h3>
-        <p class="package-desc">Κεντρική φωτογράφιση, 60 ως 100 επεξεργασμένες λήψεις.</p>
+        <p class="package-desc">Κεντρική φωτογράφιση, 60 ως 100 επεξεργασμένες λήψεις, γραπτές φωτο-οδηγίες για την ομάδα ώστε κάθε περιοδεία να βγάζει υλικό.</p>
       </div>
-      <div class="package-card">
+      <div class="package-card reveal reveal-delay-1">
         <div class="package-letter">Ι</div>
         <h3 class="package-name">Media Training &amp; Debate</h3>
-        <p class="package-desc">Τέσσερις ως έξι συνεδρίες κάμερας και συνεντεύξεων, δύο προσομοιώσεις debate.</p>
+        <p class="package-desc">Τέσσερις ως έξι συνεδρίες κάμερας και συνεντεύξεων, δύο προσομοιώσεις debate, πρόβα των δύσκολων σεναρίων του δήμου.</p>
       </div>
-      <div class="package-card">
+      <div class="package-card reveal reveal-delay-2">
         <div class="package-letter">ΙΑ</div>
         <h3 class="package-name">Ιστοσελίδα Υποψηφίου</h3>
-        <p class="package-desc">Η ψηφιακή βάση: βιογραφικό, θέσεις, φόρμες που τροφοδοτούν το CRM.</p>
+        <p class="package-desc">Η ψηφιακή βάση: βιογραφικό, θέσεις, φόρμες που τροφοδοτούν το CRM, σελίδες προορισμού για κάθε καμπάνια. Ο μόνος χώρος που ανήκει στον υποψήφιο.</p>
       </div>
+    </div>
+
+    <div class="reveal" style="margin-top: 4rem; padding: 2rem; border: 1px solid var(--border-dark); border-radius: 6px; background: white;">
+      <p style="font-size: 0.85rem; color: var(--warm-gray); line-height: 1.7;">
+        <strong style="color: var(--teal-950);">Σημείωση:</strong> Τα πακέτα συντίθενται αρθρωτά, αλλά υπακούν σε μία αρχή: ένας υποψήφιος ανά δήμο. Το πλήρες κοστολόγιο ανά μέγεθος δήμου παραδίδεται γραπτά μετά την πρώτη συνάντηση. Ενδεικτικά για πλήρη καμπάνια έξι μηνών: <strong style="color: var(--coral);">16-24 χιλ. ευρώ</strong> σε μικρό δήμο, <strong style="color: var(--coral);">28-44</strong> σε μεσαίο, <strong style="color: var(--coral);">50-85</strong> σε μεγάλο, χωρίς ΦΠΑ και διαφημιστική δαπάνη.
+      </p>
     </div>
   </section>
 
+  <!-- Process Timeline -->
   <section class="process" id="process">
-    <div style="text-align: center; margin-bottom: 6rem;">
+    <div class="section-heading reveal" style="text-align: center; margin-bottom: 6rem;">
       <div class="section-eyebrow" style="justify-content: center;">Πώς δουλεύουμε</div>
       <h2 class="section-title section-title-light">Από τη διάγνωση στην κάλπη, με ημερολόγιο.</h2>
     </div>
-    <div class="process-timeline">
-      <div class="process-step">
+
+    <div class="process-timeline" id="processTimeline">
+      <div class="process-line-fill" id="processLineFill"></div>
+
+      <div class="process-step" data-step="1">
         <div class="process-visual">
           <div class="process-roman">I</div>
         </div>
+        <div class="process-dot"></div>
         <div class="process-content">
           <h3 class="process-title">Διάγνωση</h3>
           <p class="process-desc">Έρευνα στο πεδίο, αποτύπωση αντιπάλων, χαρτογράφηση ζητημάτων ανά δημοτική ενότητα.</p>
         </div>
       </div>
-      <div class="process-step">
+
+      <div class="process-step" data-step="2">
         <div class="process-visual">
           <div class="process-roman">II</div>
         </div>
+        <div class="process-dot"></div>
         <div class="process-content">
           <h3 class="process-title">Στρατηγική</h3>
-          <p class="process-desc">Κεντρικό αφήγημα, τρεις πυλώνες, θέσεις ανά τομέα.</p>
+          <p class="process-desc">Κεντρικό αφήγημα, τρεις πυλώνες, θέσεις ανά τομέα. Κάθε ισχυρισμός εξηγεί το γιατί, όχι μόνο το τι.</p>
         </div>
       </div>
-      <div class="process-step">
+
+      <div class="process-step" data-step="3">
         <div class="process-visual">
           <div class="process-roman">III</div>
         </div>
+        <div class="process-dot"></div>
         <div class="process-content">
           <h3 class="process-title">Ημερολόγιο</h3>
-          <p class="process-desc">Δράσεις και περιεχόμενο ανά εβδομάδα. Κάθε συγκέντρωση μπαίνει με στόχο.</p>
+          <p class="process-desc">Δράσεις και περιεχόμενο ανά εβδομάδα. Κάθε συγκέντρωση μπαίνει με στόχο, λίστα και πλάνο αξιοποίησης.</p>
         </div>
       </div>
-      <div class="process-step">
+
+      <div class="process-step" data-step="4">
         <div class="process-visual">
           <div class="process-roman">IV</div>
         </div>
+        <div class="process-dot"></div>
         <div class="process-content">
           <h3 class="process-title">Εκτέλεση</h3>
-          <p class="process-desc">Πεδίο και ψηφιακό, συντονισμένα από τους ίδιους δύο ανθρώπους.</p>
+          <p class="process-desc">Πεδίο και ψηφιακό, συντονισμένα από τους ίδιους δύο ανθρώπους που έγραψαν το πλάνο.</p>
         </div>
       </div>
-      <div class="process-step">
+
+      <div class="process-step" data-step="5">
         <div class="process-visual">
           <div class="process-roman">V</div>
         </div>
+        <div class="process-dot"></div>
         <div class="process-content">
           <h3 class="process-title">Μέτρηση</h3>
-          <p class="process-desc">Δείκτες, μηνιαία αναφορά, αναπροσαρμογή. Η καμπάνια κρίνεται σε αριθμούς.</p>
+          <p class="process-desc">Δείκτες, μηνιαία αναφορά, αναπροσαρμογή. Η καμπάνια κρίνεται σε αριθμούς, όχι σε εντυπώσεις.</p>
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Team -->
   <section class="team" id="team">
-    <div style="margin-bottom: 4rem;">
+    <div class="section-heading reveal">
       <div class="section-eyebrow">Οι άνθρωποι</div>
       <h2 class="section-title">Δύο ισότιμοι συνεταίροι, διακριτές ευθύνες.</h2>
     </div>
+
     <div class="team-grid">
-      <div class="team-member">
+      <div class="team-member reveal reveal-delay-1">
         <div class="team-header">
           <div class="team-avatar">Κ</div>
           <div>
@@ -395,7 +1357,8 @@
         <p class="team-desc">Σχεδιάζει το κεντρικό αφήγημα και τους άξονες. Διευθύνει social media, περιεχόμενο και διαφημίσεις. Γράφει λόγους, άρθρα και θέσεις.</p>
         <p class="team-quote">«Κάθε ανάρτηση και κάθε ομιλία υπηρετούν το ίδιο αφήγημα.»</p>
       </div>
-      <div class="team-member">
+
+      <div class="team-member reveal reveal-delay-2">
         <div class="team-header">
           <div class="team-avatar">Σ</div>
           <div>
@@ -410,14 +1373,23 @@
     </div>
   </section>
 
+  <!-- Testimonials -->
   <section class="testimonials" id="testimonials">
-    <div style="text-align: center; margin-bottom: 4rem;">
+    <div class="section-heading reveal">
       <div class="section-eyebrow" style="justify-content: center;">Απόψεις</div>
-      <h2 class="section-title section-title-light">Τι λένε οι συνεργάτες μας</h2>
+      <h2 class="section-title section-title-light" style="text-align: center; max-width: none;">Τι λένε οι συνεργάτες μας</h2>
     </div>
-    <div style="overflow: hidden;">
+
+    <div class="testimonials-wrapper" style="overflow: hidden;">
       <div class="testimonials-carousel" id="testimonialsCarousel">
         <div class="testimonial-card">
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
           <p class="testimonial-text">"Η ομάδα της Agora κατάφερε να δώσει μορφή σε ένα όραμα που είχαμε χρόνια. Η καμπάνια μας είχε συνέχεια, συνέπεια και απτά αποτελέσματα."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">ΓΡ</div>
@@ -427,8 +1399,16 @@
             </div>
           </div>
         </div>
+
         <div class="testimonial-card">
-          <p class="testimonial-text">"Η έρευνα πεδίου που έκαναν ήταν εντυπωσιακή. Γνώριζαν τον δήμο μας καλύτερα από εμάς."</p>
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"Η έρευνα πεδίου που έκαναν ήταν εντυπωσιακή. Γνώριζαν τον δήμο μας καλύτερα από εμάς. Κάθε απόφαση στηρίχτηκε σε δεδομένα, όχι σε υποθέσεις."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">ΜΚ</div>
             <div>
@@ -437,8 +1417,16 @@
             </div>
           </div>
         </div>
+
         <div class="testimonial-card">
-          <p class="testimonial-text">"Από την πρώτη μέρα είχαμε σαφή εικόνα του που πηγαίναμε. Η μηνιαία αναφορά ήταν ο οδηγός μας."</p>
+          <div class="testimonial-stars">
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <p class="testimonial-text">"Από την πρώτη μέρα είχαμε σαφή εικόνα του που πηγαίναμε. Η μηνιαία αναφορά ήταν ο οδηγός μας. Το αποτέλεσμα μίλησε από μόνο του."</p>
           <div class="testimonial-author">
             <div class="testimonial-avatar">ΝΑ</div>
             <div>
@@ -449,39 +1437,53 @@
         </div>
       </div>
     </div>
+
     <div class="testimonials-nav">
-      <button onclick="moveCarousel(-1)" aria-label="Προηγούμενο">&larr;</button>
-      <button onclick="moveCarousel(1)" aria-label="Επόμενο">&rarr;</button>
+      <button onclick="moveCarousel(-1)" aria-label="Προηγούμενο">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M15 18l-6-6 6-6"/>
+        </svg>
+      </button>
+      <button onclick="moveCarousel(1)" aria-label="Επόμενο">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 18l6-6-6-6"/>
+        </svg>
+      </button>
     </div>
   </section>
 
+  <!-- Contact -->
   <section class="contact" id="contact">
     <div class="contact-grid">
-      <div>
-        <div class="section-eyebrow">Πρώτη συνάντηση</div>
-        <h2 class="section-title">Ας μιλήσουμε για τον δικό σας δήμο.</h2>
-        <p style="color: #6b6560; margin-bottom: 3rem; line-height: 1.7;">Η πρώτη συνάντηση χαρτογράφησης γίνεται χωρίς χρέωση και χωρίς δέσμευση. Μία ώρα πάνω στον χάρτη του δήμου σας.</p>
-        <div style="margin-bottom: 2rem;">
+      <div class="reveal">
+        <div class="section-heading">
+          <div class="section-eyebrow">Πρώτη συνάντηση</div>
+          <h2 class="section-title">Ας μιλήσουμε για τον δικό σας δήμο.</h2>
+        </div>
+        <p style="color: var(--warm-gray); margin-bottom: 3rem; line-height: 1.7;">Η πρώτη συνάντηση χαρτογράφησης γίνεται χωρίς χρέωση και χωρίς δέσμευση. Μία ώρα πάνω στον χάρτη του δήμου σας, για να δούμε πού βρίσκεστε και τι χρειάζεται η διαδρομή ως την κάλπη.</p>
+
+        <div class="contact-info-item">
           <div class="contact-info-label">Email</div>
           <div class="contact-info-value"><a href="mailto:info@agorastrategies.gr">info@agorastrategies.gr</a></div>
         </div>
-        <div style="margin-bottom: 2rem;">
+        <div class="contact-info-item">
           <div class="contact-info-label">Έδρα</div>
           <div class="contact-info-value">Αθήνα</div>
         </div>
-        <div style="margin-bottom: 2rem;">
+        <div class="contact-info-item">
           <div class="contact-info-label">Web</div>
           <div class="contact-info-value">agorastrategies.gr</div>
         </div>
       </div>
 
-      <div>
-        <h3 style="font-family: Georgia, serif; font-size: 1.2rem; color: #0a2e33; margin-bottom: 2rem;">Πες μας λίγα λόγια.</h3>
+      <div class="reveal reveal-delay-2">
+        <h3 style="font-family: var(--font-display); font-size: 1.2rem; color: var(--teal-950); margin-bottom: 2rem;">Πες μας λίγα λόγια.</h3>
         <div class="form-success" id="formSuccess">
-          <h4 style="font-family: Georgia, serif; font-size: 1.3rem; color: #0a2e33; margin-bottom: 0.75rem;">Το μήνυμα στάλθηκε επιτυχώς!</h4>
-          <p style="font-size: 0.85rem; color: #6b6560;">Σας ευχαριστούμε για την επικοινωνία. Θα απαντήσουμε εντός 24 ωρών σε εργάσιμες ημέρες.</p>
+          <div class="form-success-icon">&#10003;</div>
+          <h4>Το μήνυμα στάλθηκε επιτυχώς!</h4>
+          <p>Σας ευχαριστούμε για την επικοινωνία. Θα απαντήσουμε εντός 24 ωρών σε εργάσιμες ημέρες.</p>
         </div>
-        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html" id="contactForm">
+        <form action='/thanks' id='contactForm' method='POST' name='contact'>
           <div style="display:none;">
             <input name="bot-field" />
           </div>
@@ -495,7 +1497,7 @@
             <input type="email" name="email" class="form-input" required>
           </div>
           <div class="form-group">
-            <label class="form-label">Τηλέφωνο <span style="color: #d4856a; font-size: 0.6rem;">προαιρετικό</span></label>
+            <label class="form-label">Τηλέφωνο <span class="optional">προαιρετικό</span></label>
             <input type="tel" name="phone" class="form-input">
           </div>
           <div class="form-group">
@@ -517,16 +1519,22 @@
             <label class="form-label">Τι θα θέλατε να συζητήσουμε;</label>
             <textarea name="message" class="form-textarea"></textarea>
           </div>
-          <button type="submit" class="form-submit">Στείλτε το μήνυμα &rarr;</button>
+          <button type="submit" class="form-submit">
+            Στείλτε το μήνυμα
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </button>
           <p class="form-note">Απαντάμε εντός 24 ωρών σε εργάσιμες ημέρες. Τα στοιχεία σας δεν προωθούνται σε τρίτους.</p>
         </form>
       </div>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer-grid">
-      <div>
+      <div class="footer-brand">
         <div class="footer-logo">Agora Strategies</div>
         <div class="footer-tagline">Από την πλατεία ως το feed.</div>
       </div>
@@ -544,17 +1552,126 @@
   </footer>
 
   <script>
-    var nav = document.getElementById('nav');
-    window.addEventListener('scroll', function() {
-      if (window.scrollY > 100) { nav.classList.add('scrolled'); }
-      else { nav.classList.remove('scrolled'); }
+    // ===== HERO ENTRANCE ANIMATIONS =====
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(function() {
+        var hb = document.getElementById('heroBadge');
+        if (hb) { hb.style.opacity = '1'; hb.style.transform = 'translateY(0)'; }
+      }, 100);
+      setTimeout(function() {
+        var ht = document.getElementById('heroTitle');
+        if (ht) { ht.style.opacity = '1'; ht.style.transform = 'translateY(0)'; }
+      }, 200);
+      setTimeout(function() {
+        var hs = document.getElementById('heroSubtitle');
+        if (hs) { hs.style.opacity = '1'; hs.style.transform = 'translateY(0)'; }
+      }, 400);
+      setTimeout(function() {
+        var hst = document.getElementById('heroStats');
+        if (hst) { hst.style.opacity = '1'; hst.style.transform = 'translateY(0)'; animateCounters(); }
+      }, 600);
+      setTimeout(function() {
+        var hc = document.getElementById('heroCta');
+        if (hc) { hc.style.opacity = '1'; hc.style.transform = 'translateY(0)'; }
+      }, 800);
     });
 
-    function openMenu() { document.getElementById('mobileMenu').classList.add('open'); }
-    function closeMenu() { document.getElementById('mobileMenu').classList.remove('open'); }
+    // ===== CURSOR + PARTICLES REMOVED FOR MOBILE COMPATIBILITY =====
 
+    // ===== NAV SCROLL =====
+    var nav = document.getElementById('nav');
+    var lastScroll = 0;
+    window.addEventListener('scroll', function() {
+      var currentScroll = window.scrollY;
+      if (currentScroll > 100) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    });
+
+    // ===== MOBILE MENU =====
+    function openMenu() {
+      document.getElementById('mobileMenu').classList.add('open');
+    }
+    function closeMenu() {
+      document.getElementById('mobileMenu').classList.remove('open');
+    }
+
+    // ===== SCROLL REVEAL (without IntersectionObserver for old Android) =====
+    var revealElements = document.querySelectorAll('.reveal');
+    function checkReveal() {
+      var vh = window.innerHeight;
+      for (var i = 0; i < revealElements.length; i++) {
+        var rect = revealElements[i].getBoundingClientRect();
+        if (rect.top < vh - 50) {
+          revealElements[i].classList.add('visible');
+        }
+      }
+    }
+    window.addEventListener('scroll', checkReveal);
+    checkReveal();
+
+    // ===== COUNTER ANIMATION =====
+    function animateCounters() {
+      var counters = document.querySelectorAll('.counter');
+      for (var i = 0; i < counters.length; i++) {
+        (function(counter) {
+          var target = parseInt(counter.dataset.target);
+          var duration = 2000;
+          var step = target / (duration / 16);
+          var current = 0;
+          function update() {
+            current += step;
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+              requestAnimationFrame(update);
+            } else {
+              counter.textContent = target;
+            }
+          }
+          update();
+        })(counters[i]);
+      }
+    }
+
+    // ===== PROCESS TIMELINE =====
+    var timeline = document.getElementById('processTimeline');
+    var lineFill = document.getElementById('processLineFill');
+    var steps = document.querySelectorAll('.process-step');
+
+    function updateTimeline() {
+      if (!timeline) return;
+      var rect = timeline.getBoundingClientRect();
+      var viewportHeight = window.innerHeight;
+      var timelineTop = rect.top;
+      var timelineHeight = rect.height;
+
+      var progress = (viewportHeight - timelineTop) / (viewportHeight + timelineHeight);
+      progress = Math.max(0, Math.min(1, progress));
+
+      if (lineFill) {
+        lineFill.style.height = (progress * 100) + '%';
+      }
+
+      for (var i = 0; i < steps.length; i++) {
+        var stepProgress = (progress * steps.length) - i;
+        if (stepProgress > 0.3) {
+          steps[i].classList.add('active');
+        } else {
+          steps[i].classList.remove('active');
+        }
+      }
+    }
+
+    window.addEventListener('scroll', updateTimeline);
+    updateTimeline();
+
+    // ===== TESTIMONIALS CAROUSEL =====
     var carouselPos = 0;
     var carousel = document.getElementById('testimonialsCarousel');
+
     function moveCarousel(direction) {
       if (!carousel) return;
       var cards = carousel.querySelectorAll('.testimonial-card');
@@ -565,13 +1682,23 @@
       carousel.style.transform = 'translateX(' + carouselPos + 'px)';
     }
 
-    var search = window.location.search;
-    if (search.indexOf('thanks=') !== -1 || search.indexOf('submitted=') !== -1) {
-      var form = document.getElementById('contactForm');
-      var success = document.getElementById('formSuccess');
-      if (form && success) { form.style.display = 'none'; success.className = 'form-success show'; }
-    }
+    // ===== FORM SUBMITTED STATE (without URLSearchParams) =====
+    (function() {
+      var search = window.location.search;
+      if (search.indexOf('thanks=true') !== -1 || search.indexOf('submitted=true') !== -1) {
+        var form = document.getElementById('contactForm');
+        var success = document.getElementById('formSuccess');
+        if (form && success) {
+          form.style.display = 'none';
+          success.classList.add('show');
+        }
+        if (window.history.replaceState) {
+          window.history.replaceState({}, document.title, window.location.pathname + window.location.hash);
+        }
+      }
+    })();
 
+    // ===== SMOOTH SCROLL (without scrollIntoView smooth) =====
     var scrollAnchors = document.querySelectorAll('a[href^="#"]');
     for (var i = 0; i < scrollAnchors.length; i++) {
       scrollAnchors[i].addEventListener('click', function(e) {
@@ -579,7 +1706,10 @@
         if (href === '#') return;
         e.preventDefault();
         var target = document.querySelector(href);
-        if (target) { window.scrollTo(0, target.offsetTop - 80); }
+        if (target) {
+          var offset = target.offsetTop - 80;
+          window.scrollTo(0, offset);
+        }
       });
     }
   </script>
