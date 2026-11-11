@@ -1483,7 +1483,7 @@
           <h4>Το μήνυμα στάλθηκε επιτυχώς!</h4>
           <p>Σας ευχαριστούμε για την επικοινωνία. Θα απαντήσουμε εντός 24 ωρών σε εργάσιμες ημέρες.</p>
         </div>
-        <form action='/thanks' id='contactForm' method='POST' name='contact'>
+        <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thanks.html" id="contactForm">
           <div style="display:none;">
             <input name="bot-field" />
           </div>
